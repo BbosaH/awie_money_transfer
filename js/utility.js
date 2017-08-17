@@ -159,35 +159,3 @@ var getCashIns = (transactions,currencies,branch_id)=>{
 
 
 }
-
-
-
-
-
-// var getCurrencyBalance = function (...balances ,currency_id){
-//
-//   var currency_balances  =  _(balances).filter((x)=>{
-//     x.currency_id = currency_id;
-//   });
-//   return currency_balances;
-// }
-//
-// var getBranchCurrency = function(...account,branch_id){
-//   var branch
-// }
-//
-// var createDisplayAccount = function(...accounts , ...balances){
-//   var display_accounts = _(accounts).map((x)={
-//
-//       var my_balances = _(balances).reduce((y)=>{
-//
-//          y.accountId == x.id;
-//       },[]._);
-//
-//   });
-//
-// }
-// var filterAccounts = function (...accounts,...balances)
-// {
-//
-// }
