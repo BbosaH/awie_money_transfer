@@ -1,0 +1,3070 @@
+<div ng-controller="HomeCtrl">
+
+
+
+     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse" id="my_nav_but">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- You'll want to use a responsive image option so this logo looks good on devices - I recommend using something like retina.js (do a quick Google search for it and you'll find it) -->
+                <label id="agent_details" style="color:white"> {{me.firstName}} {{me.surname}}  : {{me.branchName}} </label>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li ng-if="user_type_id==2 || user_type_id==3 || user_type_id==5 "><a  ng-click="toggleShow(1)" style="cursor:pointer"><text style="font-size:13px;font-weight:bold"><i class="ion-android-bicycle"></i> Transfer</text></a>
+                    </li>
+                    <li ng-if="user_type_id==2 || user_type_id==3 || user_type_id==5 "><a  ng-click="toggleShow(2)" style="cursor:pointer"><text style="font-size:13px;font-weight: bold"><i class="ion-coffee"></i> Withdraw</text></a>
+                    </li>
+                    <li ng-if="user_type_id==2 || user_type_id==3 || user_type_id==5 "><a ng-click="toggleShow(7)" style="cursor:pointer"><text style="font-size:13px;font-weight: bold"><i class="ion-ios-cloud-download"></i> acc_withdraws</text></a>
+                    </li>
+
+                    <li ng-if="user_type_id==2 || user_type_id==3"><a ng-click="toggleShow(25)" style="cursor:pointer"><text style="font-size:13px;font-weight: bold"><i class="ion-ios-rose"></i> Xchange</text></a>
+                    </li>
+                    <!-- <li ng-if="user_type_id==2 || user_type_id==3 || user_type_id==5 "><a ng-click="toggleShow(35)" style="cursor:pointer"><text style="font-size:13px;font-weight: bold">Reports</text></a>
+                    </li> -->
+
+                    <li><a ng-click="toggleShow(36)" style="cursor:pointer"><text style="font-size:13px;font-weight: bold"><i class="ion-social-buffer"></i> Daily Report</text></a>
+                    </li>
+                    <!--<li><a ng-if="user_type_id==1 || user_type_id==2" ng-click="toggleShow(3)"><text style="font-size:13px;font-weight: bold">Add User</text></a>-->
+                    <!--</li>-->
+                    <li ng-if="user_type_id==2">
+                      <a  ng-click="toggleShow(4)" style="cursor:pointer"><text style="font-size:13px;font-weight: bold"><i class="ion-ios-compose"></i> Add Branch</text></a>
+                    </li>
+                    <!--<li><a ng-if="user_type_id==1 || user_type_id==2" ng-click="toggleShow(5)" ng-disabled='true'><text style="font-size:13px;font-weight: bold">Add Currency</text></a>-->
+                    <!--</li>-->
+                    <!--<li><a ng-if="user_type_id==1 || user_type_id==2" ng-click="toggleShow(11)"><text style="font-size:13px;font-weight: bold">Add Country</text></a>-->
+                    <!--</li>-->
+                    <li ng-if="user_type_id==2 || user_type_id==3 || user_type_id==5 ">
+                        <a ng-click="toggleShow(8)" style="cursor:pointer"><text style="font-size:13px;font-weight: bold"><i class="ion-icecream"></i> Expenses</text></a>
+                    </li>
+                    <li ng-if="user_type_id==1 || user_type_id==2">
+                      <a  ng-click="toggleShow(17)" style="cursor:pointer"><text style="font-size:13px;font-weight: bold"><i class="ion-aperture"></i> Fill account</text></a>
+                    </li>
+                    <li ng-if="user_type_id==5">
+                      <a   ng-click="toggleShow(59)" style="cursor:pointer"><text style="font-size:13px;font-weight: bold"><i class="ion-bag"></i> SendMoney</text></a>
+                    </li>
+                    <li ng-if="user_type_id==1 || user_type_id==2">
+                      <a  ng-click="toggleShow(10)" style="cursor:pointer"><text style="font-size:13px;font-weight: bold"><i class="ion-bonfire"></i> Add Account</text></a>
+                    </li>
+                    <li ng-if="user_type_id==1">
+                      <a ng-click="toggleShow(16)" style="cursor:pointer"><text style="font-size:13px;font-weight: bold"><i class="ion-bookmark"></i> Credit RMB</text></a>
+                    </li>
+                    <li>
+                      <a  ng-click="toggleShow(28)" style="cursor:pointer"><text style="font-size:12px;font-weight: bold;color:blue;text-decoration:underline">Reset pass</text></a>
+                    </li>
+                    <li>
+                      <a  ng-click="log_out()" style="cursor:pointer"><text style="font-size:12px;font-weight: bold;color:red;text-decoration:underline">Logout</text></a>
+                    </li>
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+	        <br/>
+	   <div>
+	        <img src="uploads/5.gif" style="width:30px;width:30px;">
+	   </div>
+
+
+		<div class="container" id="face_main" style="background-color: white" ng-if="toggle_value==0">
+		 <div class="row">
+
+		  <div class="col-sm-2">
+		  </div>
+
+		   <div class="col-sm-8">
+		       <label style="font-size:30px;font-style:italic;text-align:center">awiegroup money transfer system </label>
+		   <!--<img src="uploads/path.jpg" class="trac_img">-->
+		   </div>
+
+		   <div class="col-sm-2">
+
+		  </div>
+		 </div>
+		 <div class="row">
+		 	<div class="col-sm-12">
+		 	  <div class="panel-footer">
+		 	   <div class="row"  style="height:35px;">
+		 	       <div class="col-sm-6">
+                      <label style="">&copy  awiegroup.com  2017  *by H&H</label>
+                    </div>
+                    <div class="col-sm-6">
+
+                     </div>
+                </div>
+
+
+
+
+             </div>
+		 	</div>
+		 </div>
+		</div>
+
+		<!-- /end  starting face pill -->
+		<!-- create fund transfer pill -->
+		<div class="container" id="face_register_transaction" ng-if="toggle_value==1">
+			    <div class="row">
+			    <section class="panel panel-body"  style="border-radius:0px">
+
+			        <div class="wizard" style="margin-top: 0%;">
+			            <h4 style="color:#565656; text-align: center;font-weight: bold"></h4>
+
+
+			             <div class="wizard-inner" style="margin-top: -5%;">
+			                <div class="connecting-line"></div>
+			            </div>
+
+			            <form role="form" name='my_transaction_form' enctype="multipart/formdata" ng-submit="holdTransfer()" novalidate>
+			                <div class="tab-content">
+
+
+			                    <div class="tab-pane active" role="tabpanel" id="step1">
+			                        <div class="step1">
+			                            <div class="row">
+			                            <div class="col-md-6">
+			                            <h4 style="color:#565656; text-align: center;font-weight: bold">Create Transfer</h4>
+			                            <hr/>
+
+			                                <div class="row">
+
+				                                <div class="col-sm-4">
+
+				                                <label for="exampleInputEmail1" class="form_label">Amount</label>
+				                                </div>
+				                                <div class="col-sm-8">
+
+
+
+					                                <input type="text" class="form-control  my_form_item" name="amount" placeholder="amount"  ng-model="transfer_data.amount" required >
+					                                <!--<span ng-show="my_transaction_form.amount.$error.required"><text style="font-size: 30px; color :#B00606">*</text></span>-->
+
+
+
+
+
+
+				                                </div>
+			                                </div>
+			                                <div class="row">
+				                                <div class="col-sm-4">
+				                                <label for="exampleInputEmail1" class="form_label">Currency</label>
+				                                </div>
+				                                <div class="col-sm-8">
+				                                  <select class="form-control  my_form_item" name="currency" ng-model="transfer_data.from_currency_id"    ng-options="currency.getId() as currency.getName() for currency in currencies">
+
+										      		 <option  value=""> -- </option>
+										 		   </select>
+			                                    </div>
+			                                </div>
+
+			                                <div class="row">
+				                                <div class="col-sm-4">
+				                                <label for="exampleInputEmail1" class="form_label">Change Money to</label>
+				                                </div>
+				                                <div class="col-sm-8">
+				                                  <select class="form-control  my_form_item" name="currency" ng-model="transfer_data.to_currency_id"    ng-options="currency.getId() as currency.getName() for currency in currencies">
+
+										      		 <option  value=""> -- </option>
+										 		   </select>
+			                                    </div>
+			                                </div>
+
+			                                <div class="row">
+				                                <div class="col-sm-4">
+				                                <label for="exampleInputEmail1" class="form_label">Xchange rate </label>
+				                                </div>
+				                                <div class="col-sm-8">
+				                                <input type="text" class="form-control  my_form_item" name="exchange_rate" placeholder="exchange rate "  ng-model="transfer_data.exchange_rate" required ng-change="xchangeInputChanged()" ng-model-options="{debounce: 1000}">
+
+				                                </div>
+			                                </div>
+
+			                                <div class="row">
+				                                <div class="col-sm-4">
+				                                <label for="exampleInputEmail1" class="form_label">Amount from rate </label>
+				                                </div>
+				                                <div class="col-sm-8">
+				                                <input type="text" class="form-control  my_form_item" name="transaction_code" placeholder="exchange rate from Currency account"  ng-model="transfer_data.amount_from_rate" required readonly>
+				                                </div>
+			                                </div>
+
+
+			                                <div class="row">
+				                                <div class="col-sm-4">
+				                                <label for="exampleInputEmail1" class="form_label">Charge</label>
+				                                </div>
+				                                <div class="col-sm-8">
+
+
+							                                <input type="text" class="form-control  my_form_item" name="" placeholder="charge"  ng-model="transfer_data.charge"  required>
+
+
+
+				                                </div>
+			                                </div>
+
+			                                <div class="row">
+				                                <div class="col-sm-4">
+				                                <label for="exampleInputEmail1" class="form_label">Charge currency</label>
+				                                </div>
+				                                <div class="col-sm-8">
+				                                  <select class="form-control  my_form_item" name="currency" ng-model="transfer_data.charge_currency_id"    ng-options="currency.getId() as currency.getName() for currency in currencies">
+
+										      		 <option  value=""> -- </option>
+										 		   </select>
+			                                    </div>
+			                                </div>
+			                                <hr>
+
+			                            <h4 style="color:#565656; text-align: center;font-weight: bold">Sender Details</h4>
+			                            <hr/>
+
+			                                <div class="row">
+				                                <div class="col-sm-4">
+				                                <label for="exampleInputEmail1" class="form_label">Sender name</label>
+				                                </div>
+				                                <div class="col-sm-8">
+				                                <input type="text" class="form-control  my_form_item" name="ssur_name" placeholder="sender sur name"  ng-model="transfer_data.ssur_name" required>
+				                                <!--<span ng-show="my_transaction_form.ssur_name.$error.required"><text style="font-size: 30px; color :#B00606">*</text></span>-->
+				                                </div>
+			                                </div>
+
+			                                <div class="row">
+				                                <div class="col-sm-4">
+				                                <label for="exampleInputEmail1" class="form_label">Sender Phone No.</label>
+				                                </div>
+				                                <div class="col-sm-8">
+				                                <input type="text" class="form-control  my_form_item" name="sphone_number" placeholder="sender phone number"  ng-model="transfer_data.sphone_number" required>
+				                                <!--<span ng-show="my_transaction_form.sphone_number.$error.required"><text style="font-size: 30px; color :#B00606">*</text></span>-->
+				                                </div>
+			                                </div>
+
+
+			                            </div>
+			                            <div class="col-md-6">
+			                                <h4 style="color:#565656; text-align: center;font-weight: bold">Reciever details</h4>
+			                            <hr/>
+
+			                                <div class="row">
+				                                <div class="col-sm-4">
+				                                <label for="exampleInputEmail1" class="form_label">Reciever name</label>
+				                                </div>
+				                                <div class="col-sm-8">
+				                                <input type="text" class="form-control  my_form_item" name="rsur_name" placeholder="reciever sur name"  ng-model="transfer_data.rsur_name" required>
+				                                <!--<span ng-show="my_transaction_form.rsur_name.$error.required"><text style="font-size: 30px; color :#B00606">*</text></span>-->
+
+				                                </div>
+			                                </div>
+
+			                                <div class="row">
+				                                <div class="col-sm-4">
+				                                <label for="exampleInputEmail1" class="form_label">Reciever Phone</label>
+				                                </div>
+				                                <div class="col-sm-8">
+				                                <input type="text" class="form-control  my_form_item" name="receiver_phone" placeholder="reciever phone"  ng-model="transfer_data.rphone_number" required>
+
+				                                <!--<span ng-show="my_transaction_form.receiver_phone.$error.required"><text style="font-size: 30px; color :#B00606">*</text></span>-->
+
+				                                </div>
+			                                </div>
+
+
+			                                <div class="row">
+				                                <div class="col-sm-4">
+				                                <label for="exampleInputEmail1" class="form_label">Account No.</label>
+				                                </div>
+				                                <div class="col-sm-8">
+				                                <input type="text" class="form-control  my_form_item" name="" placeholder="reciever account no"  ng-model="transfer_data.account_no" required>
+
+				                                </div>
+			                                </div>
+			                                <hr>
+			                                <div class="row">
+				                                <div class="col-sm-12">
+				                                  <button type="submit" class="form-control noborder_radius bold btn-success submit_but" style="margin-top:5%;height:50px" ng-disabled=" my_transaction_form.rsur_name.$error.required ||
+				                                  my_transaction_form.amount.$error.required || my_transaction_form.ssur_name.$error.required"> <text style="font-weight: bold;">Submit Transaction <i class="glyphicon glyphicon-ok"></i> </button>
+				                                </div>
+			                                </div>
+
+
+
+
+			                            </div>
+			                        </div>
+
+
+			                        </div>
+
+
+			                        <div class="alert alert-warning" ng-show="select_toggle==-1">
+			       			          <strong>Please</strong> Select a branch <strong> </strong>
+			    		        	</div>
+
+			                    </div>
+
+			                </div>
+			            </form>
+			        </div>
+
+			    </section>
+			    </div>
+	    </div>
+
+	    <!-- / end create fund transfer pill -->
+
+		<!-- transaction confirmation pill  -->
+
+		<div class="container" id="face_transfer_confirmation" ng-if="toggle_value==15">
+				<section class="panel panel-body"  style="border-radius:0px">
+					<div class="row">
+						<div class="col-sm-12">
+						   <h4 style="color:#565656; text-align: center;font-weight: bold">View transaction details </h4>
+						   <hr>
+
+						   <table id="mytable" class="table table-bordred table-striped">
+
+							            <thead>
+
+							                   <th style="color :#234E23;text-align: center;font-size: 18px;">Description</th>
+							                   <th style="color :#234E23;text-align: center;font-size: 18px;">Value</th>
+
+
+
+							            </thead>
+										    <tbody id="my_transaction_table">
+
+											    <tr class="success">
+
+												    <td style="text-align: center;color:#47A447;font-weight: bolder">Amount
+												    </td>
+												    <td ng-show="transfer_data.amount_from_rate > 0" style="text-align:center;font-weight: bolder">{{transfer_data.amount_from_rate}}
+												    </td>
+                            <td ng-show="transfer_data.amount_from_rate == 0" style="text-align:center;font-weight: bolder">{{transfer_data.amount}}
+												    </td>
+
+											    </tr>
+											    <tr>
+												    <td style="text-align: center;color:#47A447;font-weight: bolder">Currency
+												    </td>
+												    <td style="text-align:center;font-weight: bolder">{{transfer_data.to_currency}}
+												    </td>
+											    </tr>
+
+											    <tr>
+												    <td style="text-align: center;color:#47A447;font-weight: bolder">Charge
+												    </td>
+												    <td style="text-align:center;font-weight: bolder">{{transfer_data.charge}}
+												    </td>
+											    </tr>
+
+											    <tr>
+												    <td style="text-align: center;color:#47A447;font-weight: bolder">Sendername
+												    </td>
+												    <td style="text-align:center;font-weight: bolder">{{transfer_data.ssur_name}}
+												    </td>
+											    </tr>
+
+
+
+											    <tr>
+												    <td style="text-align: center;color:#47A447;font-weight: bolder">reciever name
+												    </td>
+												    <td style="text-align:center;font-weight: bolder">{{transfer_data.rsur_name}}
+												    </td>
+											    </tr>
+
+											    <tr>
+												    <td style="text-align: center;color:#47A447;font-weight: bolder">reciever phone
+												    </td>
+												    <td style="text-align:center;font-weight: bolder">{{transfer_data.rphone_number}}
+												    </td>
+											    </tr>
+
+
+
+
+
+
+
+
+
+										   </tbody>
+
+							</table>
+							<hr>
+
+						</div>
+					</div>
+
+
+					<div class="row">
+
+
+
+				        <div class="col-sm-12">
+				           <input type="password" class="form-control  my_form_item" name="transaction_code" placeholder="your password"  ng-model="transfer_data.transaction_password" required>
+				        </div>
+
+				        <div class="col-sm-12">
+				            <button type="submit" class="form-control noborder_radius bold btn-success submit_but" style="margin-top:5%;height:50px" ng-click="sendTransfer()" ng-disabled="transfering==1"><text style="font-weight: bold;"> Complete Transfer <i class="glyphicon glyphicon-ok" ></i> </button>
+				        </div>
+
+					</div>
+
+
+
+
+				</section>
+		</div>
+
+		<!-- / Transaction confirmation pill -->
+
+
+
+		<!-- add Create User -->
+
+		<div class="container" id="face_register_user" ng-if="toggle_value==3">
+			    <div class="row">
+			    <section class="panel panel-body"  style="border-radius:0px">
+
+			        <div class="wizard" style="margin-top: 0%;">
+
+			            <h4 style="color:#565656; text-align: center;font-weight: bold">Create User </h4>
+
+
+			             <div class="wizard-inner" style="margin-top: 0%;">
+			                <div class="connecting-line"></div>
+			            </div>
+
+			            <form role="form" name='transaction_form' enctype="multipart/formdata" ng-submit="addUser()">
+			                <div class="tab-content">
+
+
+			                    <div class="tab-pane active" role="tabpanel" id="step1">
+			                        <div class="step1">
+			                            <div class="row">
+			                            <div class="col-md-6">
+			                            <h4 style="color:#565656; text-align: center;font-weight: bold">Add User Details</h4>
+			                            <hr/>
+
+			                                <div class="row">
+				                                <div class="col-sm-4">
+				                                <label for="exampleInputEmail1" class="form_label">Firstname</label>
+				                                </div>
+				                                <div class="col-sm-8">
+				                                <input type="text" class="form-control  my_form_item" name="transaction_code" placeholder="first name"  ng-model="add_user.first_name" required>
+				                                </div>
+			                                </div>
+
+			                                <div class="row">
+				                                <div class="col-sm-4">
+				                                <label for="exampleInputEmail1" class="form_label">Surname</label>
+				                                </div>
+				                                <div class="col-sm-8">
+				                                <input type="text" class="form-control  my_form_item" name="transaction_code" placeholder="surname"  ng-model="add_user.sur_name" required>
+				                                </div>
+			                                </div>
+
+			                                <div class="row">
+				                                <div class="col-sm-4">
+				                                <label for="exampleInputEmail1" class="form_label">Email</label>
+				                                </div>
+				                                <div class="col-sm-8">
+				                                <input type="email" class="form-control  my_form_item" name="transaction_code" placeholder="email"  ng-model="add_user.email" required>
+				                                </div>
+			                                </div>
+
+			                                <div class="row">
+				                                <div class="col-sm-4">
+				                                <label for="exampleInputEmail1" class="form_label">Phone</label>
+				                                </div>
+				                                <div class="col-sm-8">
+				                                <input type="text" class="form-control  my_form_item" name="transaction_code" placeholder="phone number"  ng-model="add_user.phone" required>
+				                                </div>
+			                                </div>
+
+			                                <div class="row">
+				                                <div class="col-sm-4">
+				                                <label for="exampleInputEmail1" class="form_label">permissions</label>
+				                                </div>
+				                                <div class="col-sm-8">
+				                                  <select class="form-control  my_form_item" name="currency" ng-model="add_user.user_type_id"    ng-options="user_type.getId() as user_type.getName() for user_type in user_types">
+
+										      		 <option  value=""> -- </option>
+										 		   </select>
+			                                    </div>
+			                                </div>
+
+			                                <div class="row">
+				                                <div class="col-sm-4">
+				                                <label for="exampleInputEmail1" class="form_label">Select Branch</label>
+				                                </div>
+				                                <div class="col-sm-8">
+				                                  <select class="form-control  my_form_item" name="currency" ng-model="add_user.branch_id"    ng-options="branch.getId() as branch.getName() for branch in branches">
+
+										      		 <option  value=""> -- </option>
+										 		   </select>
+			                                    </div>
+			                                </div>
+
+
+
+
+
+
+
+
+
+
+			                            </div>
+			                            <div class="col-md-6">
+			                                <h4 style="color:#565656; text-align: center;font-weight: bold"> Add User Permissions</h4>
+			                                <hr/>
+
+			                                <ul class="list-group">
+							                    <li class="list-group-item">
+							                        Can Create Tranfer
+							                        <div class="material-switch pull-right">
+							                            <input id="someSwitchOptionDefault" name="someSwitchOption001" type="checkbox"/>
+							                            <label for="someSwitchOptionDefault" class="label-default"></label>
+							                        </div>
+							                    </li>
+							                    <li class="list-group-item">
+							                        Can perform withdraw
+							                        <div class="material-switch pull-right">
+							                            <input id="someSwitchOptionPrimary" name="someSwitchOption001" type="checkbox"/>
+							                            <label for="someSwitchOptionPrimary" class="label-primary"></label>
+							                        </div>
+							                    </li>
+							                    <li class="list-group-item">
+							                        Can Create User
+							                        <div class="material-switch pull-right">
+							                            <input id="someSwitchOptionSuccess" name="someSwitchOption001" type="checkbox"/>
+							                            <label for="someSwitchOptionSuccess" class="label-success"></label>
+							                        </div>
+							                    </li>
+							                    <li class="list-group-item">
+							                        Can Create branch
+							                        <div class="material-switch pull-right">
+							                            <input id="someSwitchOptionInfo" name="someSwitchOption001" type="checkbox"/>
+							                            <label for="someSwitchOptionInfo" class="label-info"></label>
+							                        </div>
+							                    </li>
+							                    <li class="list-group-item">
+							                        Can add location
+							                        <div class="material-switch pull-right">
+							                            <input id="someSwitchOptionWarning" name="someSwitchOption001" type="checkbox"/>
+							                            <label for="someSwitchOptionWarning" class="label-warning"></label>
+							                        </div>
+							                    </li>
+							                    <li class="list-group-item">
+							                        Can add currency
+							                        <div class="material-switch pull-right">
+							                            <input id="someSwitchOptionWarning" name="someSwitchOption001" type="checkbox"/>
+							                            <label for="someSwitchOptionWarning" class="label-warning"></label>
+							                        </div>
+							                    </li>
+							                    <li class="list-group-item">
+							                        Can view Transactions
+							                        <div class="material-switch pull-right">
+							                            <input id="someSwitchOptionDanger" name="someSwitchOption001" type="checkbox"/>
+							                            <label for="someSwitchOptionDanger" class="label-danger"></label>
+							                        </div>
+							                    </li>
+							                    <li class="list-group-item">
+							                        Can Edit Transactions
+							                        <div class="material-switch pull-right">
+							                            <input id="someSwitchOptionDangeredit" name="someSwitchOption001" type="checkbox"/>
+							                            <label for="someSwitchOptionDangeredit" class="label-danger"></label>
+							                        </div>
+							                    </li>
+							                    <li class="list-group-item">
+							                        Can View Reports
+							                        <div class="material-switch pull-right">
+							                            <input id="someSwitchOptionDanger" name="someSwitchOption001" type="checkbox"/>
+							                            <label for="someSwitchOptionDanger" class="label-danger"></label>
+							                        </div>
+							                    </li>
+							                </ul>
+			                                <hr>
+			                                <div class="row">
+				                                <div class="col-sm-12">
+				                                  <button type="submit" class="form-control noborder_radius bold btn-success submit_but" style="margin-top:5%;height:50px"><text style="font-weight: bold;"> Submit User <i class="glyphicon glyphicon-ok"></i> </button>
+				                                </div>
+			                                </div>
+
+
+
+
+			                            </div>
+			                        </div>
+
+
+			                        </div>
+
+
+			                        <div class="alert alert-warning" ng-show="select_toggle==-1">
+			       			          <strong>Please</strong> Select a branch <strong> </strong>
+			    		        	</div>
+
+			                    </div>
+
+			                </div>
+			            </form>
+			        </div>
+
+			    </section>
+			    </div>
+	    </div>
+
+
+		<!-- /end create User -->
+
+
+		<!-- create branch -->
+
+		<div  class="container" id="face_register_branch" ng-show="toggle_value==4">
+
+			<div class="row">
+			    <section class="panel panel-body"  style="border-radius:0px">
+			    	<form role="form" name='transaction_form' enctype="multipart/formdata" ng-submit="sendBranch()">
+			                <div class="tab-content">
+
+
+			                    <div class="tab-pane active" role="tabpanel" id="step1">
+			                        <div class="step1">
+			                            <div class="row">
+			                            <div class="col-md-6">
+			                            <h4 style="color:#565656; text-align: center;font-weight: bold">Add Branch Details</h4>
+			                            <hr/>
+
+			                                <div class="row">
+				                                <div class="col-sm-4">
+				                                <label for="exampleInputEmail1" class="form_label">Branch name</label>
+				                                </div>
+				                                <div class="col-sm-8">
+				                                <input type="text" class="form-control  my_form_item" name="transaction_code" placeholder="name"  ng-model="branch_data.name" required>
+				                                </div>
+			                                </div>
+
+			                                <div class="row">
+				                                <div class="col-sm-4">
+				                                <label for="exampleInputEmail1" class="form_label">Branch location</label>
+				                                </div>
+				                                <div class="col-sm-8">
+				                                <input type="text" class="form-control  my_form_item" name="transaction_code" placeholder="location"  ng-model="branch_data.location" required>
+				                                </div>
+			                                </div>
+
+
+			                                <div class="row">
+				                                <div class="col-sm-4">
+				                                <label for="exampleInputEmail1" class="form_label">Supervisor</label>
+				                                </div>
+				                                <div class="col-sm-8">
+				                                  <select class="form-control  my_form_item" name="currency" ng-model="branch_data.supervisor_id"    ng-options="user.getId() as user.getName() for user in users">
+
+										      		 <option  value=""> -- </option>
+										 		   </select>
+			                                    </div>
+			                                </div>
+
+
+
+
+
+
+			                                <div class="row">
+				                                <div class="col-sm-4">
+				                                <label for="exampleInputEmail1" class="form_label">Branch Country</label>
+				                                </div>
+				                                <div class="col-sm-8">
+				                                  <select class="form-control  my_form_item" name="currency" ng-model="branch_data.country_id"    ng-options="country.getId() as country.getName() for country in countries">
+
+										      		 <option  value=""> -- </option>
+										 		   </select>
+			                                    </div>
+			                                </div>
+
+			                                <div class="row">
+				                                <div class="col-sm-12">
+				                                  <button type="submit" class="form-control noborder_radius bold btn-success submit_but" style="margin-top:5%;height:50px"><text style="font-weight: bold;"> Submit Branch details <i class="glyphicon glyphicon-ok"></i> </button>
+				                                </div>
+			                                </div>
+
+
+
+
+
+
+
+
+
+
+			                            </div>
+
+			                            <div class="col-sm-6">
+
+				                            <div class="row">
+				                            	<div class="col-sm-3">
+				                            	</div>
+				                            	<div class="col-sm-6">
+				                            		<img style="height: 300px;width:300px" src="uploads/cash_advance.png" class="trac_img">
+				                            	</div>
+				                            	<div class="col-sm-3">
+				                            	</div>
+
+				                            </div>
+
+			                            </div>
+
+			                        </div>
+
+
+			                        </div>
+
+
+
+
+			                    </div>
+
+			                </div>
+			            </form>
+			    </section>
+			</div>
+
+		</div>
+
+		<!-- /end create branch -->
+
+
+		<!-- create currency -->
+		<div class ="container" id="face_add_currency" ng-show="toggle_value==5">
+				<div class="row">
+			    	<section class="panel panel-body"  style="border-radius:0px">
+
+			    		<form role="form" name='currency_form' enctype="multipart/formdata" ng-submit="sendCurrency()">
+			                <div class="tab-content">
+
+
+			                    <div class="tab-pane active" role="tabpanel" id="step1">
+			                        <div class="step1">
+			                            <div class="row">
+			                            <div class="col-md-6">
+			                            <h4 style="color:#565656; text-align: center;font-weight: bold">Add Currency Details</h4>
+			                            <hr/>
+
+			                                <div class="row">
+				                                <div class="col-sm-4">
+				                                <label for="exampleInputEmail1" class="form_label">currency name</label>
+				                                </div>
+				                                <div class="col-sm-8">
+				                                <input type="text" class="form-control  my_form_item" name="transaction_code" placeholder="first name"  ng-model="currency_data.name" required>
+				                                </div>
+			                                </div>
+
+			                                <div class="row">
+				                                <div class="col-sm-4">
+				                                <label for="exampleInputEmail1" class="form_label">currency symbol</label>
+				                                </div>
+				                                <div class="col-sm-8">
+				                                <input type="text" class="form-control  my_form_item" name="transaction_code" placeholder="first name"  ng-model="currency_data.symbol" required>
+				                                </div>
+			                                </div>
+
+			                                <div class="row">
+				                                <div class="col-sm-4">
+				                                <label for="exampleInputEmail1" class="form_label">Branch</label>
+				                                </div>
+				                                <div class="col-sm-8">
+				                                  <select class="form-control  my_form_item" name="currency" ng-model="currency_data.branch_id"    ng-options="branch.getId() as branch.getName() for branch in branches">
+
+										      		 <option  value=""> -- </option>
+										 		   </select>
+			                                    </div>
+			                                </div>
+
+
+
+
+
+			                                <div class="row">
+				                                <div class="col-sm-12">
+				                                  <button type="submit" class="form-control noborder_radius bold btn-success submit_but" style="margin-top:5%;height:50px"><text style="font-weight: bold;"> Submit Currency details <i class="glyphicon glyphicon-ok"></i> </button>
+				                                </div>
+			                                </div>
+
+			                            </div>
+
+			                        </div>
+
+
+			                        </div>
+
+			                    </div>
+
+			                </div>
+			            </form>
+
+			    	</section>
+			    </div>
+		</div>
+		<!-- /end create currency -->
+
+		<!-- Create id type -->
+
+		<div class ="container" id="face_add_id_type" ng-show="toggle_value==6">
+				<div class="row">
+			    	<section class="panel panel-body"  style="border-radius:0px">
+
+			    		<form role="form" name='transaction_form' enctype="multipart/formdata" ng-submit="sendIdType()">
+			                <div class="tab-content">
+
+
+			                    <div class="tab-pane active" role="tabpanel" id="step1">
+			                        <div class="step1">
+			                            <div class="row">
+			                            <div class="col-md-6">
+			                            <h4 style="color:#565656; text-align: center;font-weight: bold">Add Id Type </h4>
+			                            <hr/>
+
+			                                <div class="row">
+				                                <div class="col-sm-4">
+				                                <label for="exampleInputEmail1" class="form_label">Id type name</label>
+				                                </div>
+				                                <div class="col-sm-8">
+				                                <input type="text" class="form-control  my_form_item" name="transaction_code" placeholder="first name"  ng-model="id_type_data.name" required>
+				                                </div>
+			                                </div>
+
+
+
+
+
+
+
+			                                <div class="row">
+				                                <div class="col-sm-12">
+				                                  <button type="submit" class="form-control noborder_radius bold btn-success submit_but" style="margin-top:5%;height:50px"><text style="font-weight: bold;"> Submit IdType <i class="glyphicon glyphicon-ok"></i> </button>
+				                                </div>
+			                                </div>
+
+			                            </div>
+
+			                        </div>
+
+
+			                        </div>
+
+			                    </div>
+
+			                </div>
+			            </form>
+
+			    	</section>
+			    </div>
+		</div>
+		<!-- /end create id type -->
+
+		<!-- Create expense -->
+
+		<div class ="container" id="face_add_expense" ng-show="toggle_value==8">
+				<div class="row">
+			    	<section class="panel panel-body"  style="border-radius:0px">
+
+			    		<form role="form" name='transaction_form' enctype="multipart/formdata" ng-submit="sendExpense()">
+			                <div class="tab-content">
+
+
+			                    <div class="tab-pane active" role="tabpanel" id="step1">
+			                        <div class="step1">
+			                            <div class="row">
+			                            <div class="col-md-6">
+			                            <h4 style="color:#565656; text-align: center;font-weight: bold">Add Expenses </h4>
+			                            <hr/>
+
+			                                <div class="row">
+				                                <div class="col-sm-4">
+				                                <label for="exampleInputEmail1" class="form_label">Total Amount</label>
+				                                </div>
+				                                <div class="col-sm-8">
+
+							                                <input type="text" class="form-control  my_form_item" name="amount" placeholder="amount"  ng-model="expense_data.amount" required>
+
+
+
+
+						                       </div>
+			                                </div>
+
+			                                 <div class="row">
+			                                	<div class="col-sm-4">
+				                                <label for="exampleInputEmail1" class="form_label">Currency</label>
+				                                </div>
+			                                	<div class="col-sm-8">
+
+			                                		<select class="form-control  my_form_item" name="currency" ng-model="expense_data.currency_id"    ng-options="currency.getId() as currency.getName() for currency in currencies">
+
+												      		     <option  value=""><text style="color:#e3e3e3"> currency </text></option>
+												 	</select>
+
+			                                	</div>
+			                                </div>
+
+			                                <div class="row">
+			                                	<div class="col-sm-4">
+				                                <label for="exampleInputEmail1" class="form_label">Expense details</label>
+				                                </div>
+			                                	<div class="col-sm-8">
+
+			                                		<textarea type="text" class="form-control  my_form_item" name="amount" placeholder="details"  ng-model="expense_data.details" required style="height:200px">
+			                                		</textarea>
+
+			                                	</div>
+			                                </div>
+
+
+
+
+
+
+
+			                                <div class="row">
+				                                <div class="col-sm-12">
+				                                  <button type="submit" class="form-control noborder_radius bold btn-success submit_but" style="margin-top:5%;height:50px"><text style="font-weight: bold;" ng-disabled="spending==1"> Submit Expenses <i class="glyphicon glyphicon-ok"></i> </button>
+				                                </div>
+			                                </div>
+
+			                            </div>
+
+			                        </div>
+
+
+			                        </div>
+
+			                    </div>
+
+			                </div>
+			            </form>
+
+			    	</section>
+			    </div>
+		</div>
+
+		<!-- /end create expense -->
+
+		<!-- create account -->
+
+		<div class ="container" id="face_add_account" ng-show="toggle_value==10">
+				<div class="row">
+			    	<section class="panel panel-body"  style="border-radius:0px">
+
+			    		<form role="form" name='transaction_form' enctype="multipart/formdata" ng-submit="sendAccount()">
+			                <div class="tab-content">
+
+
+			                    <div class="tab-pane active" role="tabpanel" id="step1">
+			                        <div class="step1">
+			                            <div class="row">
+			                            <div class="col-md-6">
+			                            <h4 style="color:#565656; text-align: center;font-weight: bold">Add Acount Details</h4>
+			                            <hr/>
+
+			                                <div class="row">
+				                                <div class="col-sm-4">
+				                                <label for="exampleInputEmail1" class="form_label">Account name</label>
+				                                </div>
+				                                <div class="col-sm-8">
+				                                <input type="text" class="form-control  my_form_item" name="transaction_code" placeholder="account name"  ng-model="account_data.name" required>
+				                                </div>
+			                                </div>
+
+			                                <div class="row">
+				                                <div class="col-sm-4">
+				                                <label for="exampleInputEmail1" class="form_label">Account Type</label>
+				                                </div>
+				                                <div class="col-sm-8">
+				                                  <select class="form-control  my_form_item" name="account" ng-model="account_data.account_type_id"    ng-options="account_type.getId() as account_type.getName() for account_type in accountTypes">
+
+										      		 <option  value=""> -- </option>
+										 		   </select>
+			                                    </div>
+			                                </div>
+
+			                                <div class="row">
+				                                <div class="col-sm-4">
+				                                <label for="exampleInputEmail1" class="form_label">Currency</label>
+				                                </div>
+				                                <div class="col-sm-8">
+				                                  <select class="form-control  my_form_item" name="currency" ng-model="account_data.currency_id"    ng-options="currency.getId() as currency.getName() for currency in currencies">
+
+										      		 <option  value=""> -- </option>
+										 		   </select>
+			                                    </div>
+			                                </div>
+
+
+
+
+
+
+
+			                                <div class="row">
+				                                <div class="col-sm-12">
+				                                  <button type="submit" class="form-control noborder_radius bold btn-success submit_but" style="margin-top:5%;height:50px"><text style="font-weight: bold;"> Submit Account <i class="glyphicon glyphicon-ok"></i> </button>
+				                                </div>
+			                                </div>
+
+			                            </div>
+
+			                            <div class="col-sm-6">
+
+				                            <div class="row">
+				                            	<div class="col-sm-3">
+				                            	</div>
+				                            	<div class="col-sm-6">
+				                            		<img style="height: 300px;width:300px" src="uploads/cash_advance.png" class="trac_img">
+				                            	</div>
+				                            	<div class="col-sm-3">
+				                            	</div>
+
+				                            </div>
+
+			                            </div>
+
+			                        </div>
+
+
+			                        </div>
+
+			                    </div>
+
+			                </div>
+			            </form>
+
+			    	</section>
+			    </div>
+		</div>
+
+		<!-- /end create account -->
+
+
+
+		<!-- create country -->
+		<div class ="container" id="face_add_country" ng-show="toggle_value==11">
+				<div class="row">
+			    	<section class="panel panel-body"  style="border-radius:0px">
+
+			    		<form role="form" name='country_form'  ng-submit="sendCountry()">
+			                <div class="tab-content">
+
+
+			                    <div class="tab-pane active" role="tabpanel" id="step1">
+			                        <div class="step1">
+			                            <div class="row">
+			                            <div class="col-md-6">
+			                            <h4 style="color:#565656; text-align: center;font-weight: bold">Add Country</h4>
+			                            <hr/>
+
+			                                <div class="row">
+				                                <div class="col-sm-4">
+				                                <label for="exampleInputEmail1" class="form_label">Country name</label>
+				                                </div>
+				                                <div class="col-sm-8">
+				                                <input type="text" class="form-control  my_form_item" name="country_name" placeholder="country name"  ng-model="country_data.name" required>
+				                                </div>
+			                                </div>
+
+			                                <div class="row">
+				                                <div class="col-sm-12">
+				                                  <button type="submit" class="form-control noborder_radius bold btn-success submit_but" style="margin-top:5%;height:50px"><text style="font-weight: bold;"> Submit Country <i class="glyphicon glyphicon-ok"></i> </button>
+				                                </div>
+			                                </div>
+
+			                            </div>
+
+			                        </div>
+
+
+			                        </div>
+
+			                    </div>
+
+			                </div>
+			            </form>
+
+			    	</section>
+			    </div>
+		</div>
+
+		<!-- /end create country -->
+
+		<!-- credit Rmb -->
+
+		<div class ="container" id="face_credit_Rmb" ng-show="toggle_value==16">
+				<div class="row">
+			    	<section class="panel panel-body"  style="border-radius:0px">
+
+			    		<form role="form" name='country_form'  ng-submit="sendRmbCredit()" novalidate>
+			                <div class="tab-content">
+
+
+			                    <div class="tab-pane active" role="tabpanel" id="step1">
+			                        <div class="step1">
+			                            <div class="row">
+			                            <h4 style="color:#565656; text-align: center;font-weight: bold">Credit RMB Super Account</h4>
+			                            <hr>
+			                            <div class="col-md-6">
+			                            <h4 style="color:#565656; text-align: center;font-weight: bold">Administrator 1</h4>
+			                            <hr/>
+
+			                                <div class="row">
+				                                <div class="col-sm-4">
+				                                <label for="exampleInputEmail1" class="form_label">Username</label>
+				                                </div>
+				                                <div class="col-sm-8">
+				                                <input type="text" class="form-control  my_form_item" name="country_name" placeholder="username"  ng-model="transfer_credit_Rmb_data.user_name1" required>
+				                                </div>
+			                                </div>
+			                                <div class="row">
+				                                <div class="col-sm-4">
+				                                <label for="exampleInputEmail1" class="form_label">Password</label>
+				                                </div>
+				                                <div class="col-sm-8">
+				                                <input type="password" class="form-control  my_form_item" name="country_name" placeholder="password"  ng-model="transfer_credit_Rmb_data.password1" required>
+				                                </div>
+			                                </div>
+			                             <hr/>
+			                            <h4 style="color:#565656; text-align: center;font-weight: bold">Administrator 2</h4>
+			                            <hr/>
+
+
+
+			                                <div class="row">
+				                                <div class="col-sm-4">
+				                                <label for="exampleInputEmail1" class="form_label">Username</label>
+				                                </div>
+				                                <div class="col-sm-8">
+				                                <input type="text" class="form-control  my_form_item" name="country_name" placeholder="username"  ng-model="transfer_credit_Rmb_data.user_name2" required>
+				                                </div>
+			                                </div>
+			                                <div class="row">
+				                                <div class="col-sm-4">
+				                                <label for="exampleInputEmail1" class="form_label">Password</label>
+				                                </div>
+				                                <div class="col-sm-8">
+				                                <input type="password" class="form-control  my_form_item" name="country_name" placeholder="password"  ng-model="transfer_credit_Rmb_data.password2" required>
+				                                </div>
+			                                </div>
+
+
+			                            </div>
+
+
+			                            <div class="col-md-6">
+			                            <h4 style="color:#565656; text-align: center;font-weight: bold">Credit Super Account</h4>
+			                            <hr/>
+
+			                                <div class="row">
+				                                <div class="col-sm-4">
+				                                <label for="exampleInputEmail1" class="form_label">Amount</label>
+				                                </div>
+				                                <div class="col-sm-8">
+				                                <div class="row">
+					                                <div class="col-sm-10">
+					                                	<input type="text" class="form-control  my_form_item" name="transaction_code" placeholder="amount"  ng-model="transfer_credit_Rmb_data.amount" required>
+					                                </div>
+					                                <div class="col-sm-2">
+					                                	<p style="color:#088808;font-weight: bolder;font-size:25px;margin-left:-50%">RMB</p>
+					                                </div>
+				                                </div>
+			                                </div>
+
+
+
+			                                <div class="row">
+				                                <div class="col-sm-12">
+				                                  <button type="submit" class="form-control noborder_radius bold btn-success submit_but" style="margin-top:5%;height:50px"><text style="font-weight: bold;"> Credit Super Account<i class="glyphicon glyphicon-ok"></i> </button>
+				                                </div>
+			                                </div>
+
+			                            </div>
+
+			                        </div>
+
+
+			                        </div>
+
+			                    </div>
+
+			                </div>
+			            </form>
+
+			    	</section>
+			    </div>
+		</div>
+
+		<!-- /end create Rmb -->
+
+		<!-- credit transfer accounts -->
+
+		<div class ="container" id="face_credit_transfer_account" ng-show="toggle_value==17">
+				<div class="row">
+			    	<section class="panel panel-body"  style="border-radius:0px">
+
+			    		<form role="form" name='transaction_form' enctype="multipart/formdata" ng-submit="sendTransferCredit()">
+			                <div class="tab-content">
+
+
+			                    <div class="tab-pane active" role="tabpanel" id="step1">
+			                        <div class="step1">
+			                            <div class="row">
+			                            <div class="col-md-6">
+			                            <h4 style="color:#565656; text-align: center;font-weight: bold">Credit Transfer Account</h4>
+			                            <hr/>
+
+			                                <div class="row">
+				                                <div class="col-sm-4">
+				                                <label for="exampleInputEmail1" class="form_label">Amount</label>
+				                                </div>
+				                                <div class="col-sm-8">
+					                                <div class="row">
+					                                	<div class="col-sm-10">
+					                                    	<input type="text" class="form-control  my_form_item" name="transaction_code" placeholder="amount"  ng-model="transfer_credit_data.amount" required>
+					                                    </div>
+					                                    <div class="col-sm-2">
+					                                    	<p style="color:#088808;font-weight: bolder;font-size:25px;margin-left:-50%">RMB</p>
+					                                    </div>
+					                                </div>
+				                                </div>
+			                                </div>
+
+			                                <div class="row">
+				                                <div class="col-sm-4">
+				                                <label for="exampleInputEmail1" class="form_label">Account</label>
+				                                </div>
+				                                <div class="col-sm-8">
+				                                  <select class="form-control  my_form_item" name="account" ng-model="transfer_credit_data.transfer_account_id"    ng-options="transfer_account.getId() as transfer_account.getName() for transfer_account in transfer_accounts">
+
+										      		 <option  value=""> -- </option>
+										 		   </select>
+			                                    </div>
+			                                </div>
+
+			                                <div class="row">
+
+				                                <div class="col-sm-4">
+
+				                                <label for="exampleInputEmail1" class="form_label"> Xchange rate
+				                                </label>
+
+				                                </div>
+
+				                                <div class="col-sm-8">
+				                                <input type="text" class="form-control  my_form_item" name="transaction_code" placeholder="exchange rate from RMB account"  ng-model="transfer_credit_data.exchange_rate" required ng-change="xchangeCreditInputChanged()" ng-model-options="{debounce: 1000}" >
+				                                </div>
+			                                </div>
+
+			                                <div class="row">
+				                                <div class="col-sm-4">
+				                                <label for="exampleInputEmail1" class="form_label">Amount from rate</label>
+				                                </div>
+				                                <div class="col-sm-8">
+				                                <input type="text" class="form-control  my_form_item" name="transaction_code" placeholder="account name"  ng-model="transfer_credit_data.amount_from_rate" required>
+				                                </div>
+			                                </div>
+
+
+
+			                                <div class="row">
+				                                <div class="col-sm-12">
+				                                  <button type="submit" class="form-control noborder_radius bold btn-success submit_but" style="margin-top:5%;height:50px"><text style="font-weight: bold;"> Submit Account Credit<i class="glyphicon glyphicon-ok"></i> </button>
+				                                </div>
+			                                </div>
+
+			                            </div>
+
+			                            <div class="col-sm-6">
+
+				                            <div class="row">
+				                            	<div class="col-sm-3">
+				                            	</div>
+				                            	<div class="col-sm-6">
+				                            		<img style="height: 300px;width:300px" src="uploads/cash_advance.png" class="trac_img">
+				                            	</div>
+				                            	<div class="col-sm-3">
+				                            	</div>
+
+				                            </div>
+
+			                            </div>
+
+			                        </div>
+
+
+			                        </div>
+
+			                    </div>
+
+			                </div>
+			            </form>
+
+			    	</section>
+			    </div>
+		</div>
+
+		<!-- /end credit transfer accounts -->
+
+		<!-- send money to other branch -->
+
+
+		<!-- /end send money to other branch -->
+
+		<!-- withdraw money -->
+
+		<div class ="container" id="face_add_account" ng-show="toggle_value==2">
+				<div class="row">
+			    	<section class="panel panel-body"  style="border-radius:0px">
+			    		<div class="col-sm-12">
+			    		   <hr>
+			    		   <h4 style="color:#565656; text-align: center;font-weight: bold">Withdraw Money</h4>
+			    		  <hr>
+			    		</div>
+
+			    		 <!--<div class="col-sm-12">-->
+				      <!--     <input type="text" class="form-control  my_form_item" name="transaction_code" placeholder="Sender passcode"  ng-model="withdraw_data.user_pass_code" required style="height: 60px">-->
+				      <!--  </div>-->
+
+				         <div class="col-sm-12">
+				           <input type="text" class="form-control  my_form_item" name="transaction_code" placeholder="Transaction reference"  ng-model="withdraw_data.transaction_reference" required style="height: 60px;margin-top: 3%;">
+				        </div>
+
+
+
+
+
+
+
+				        <div class="col-sm-12">
+				            <button type="submit" class="form-control noborder_radius bold btn-success submit_but" style="margin-top:5%;height:60px" ng-click="sendWithdraw()"><text style="font-weight: bold;"> start Withdraw <i class="glyphicon glyphicon-ok" ></i> </button>
+				        </div>
+		            </section>
+		        </div>
+		</div>
+
+
+		<div class="container" id="face_withdraw_confirmation" ng-if="toggle_value==18">
+				<section class="panel panel-body"  style="border-radius:0px">
+					<div class="row">
+						<div class="col-sm-12">
+						   <h4 style="color:#565656; text-align: center;font-weight: bold">View transaction details </h4>
+						   <hr>
+
+						   <table id="mytable" class="table table-bordred table-striped">
+
+							            <thead>
+
+							                   <th style="color :#234E23;text-align: center;font-size: 18px;">Description</th>
+							                   <th style="color :#234E23;text-align: center;font-size: 18px;">Value</th>
+
+
+
+							            </thead>
+										    <tbody id="my_transaction_table">
+
+											    <tr class="success">
+
+												    <td style="text-align: center;color:#47A447;font-weight: bolder">Amount To Cashout
+												    </td>
+												    <td style="text-align:center;font-weight: bolder">{{withdraw_details.data.amountAfterExchange}}
+												    </td>
+
+											    </tr>
+											    <tr>
+												    <td style="text-align: center;color:#47A447;font-weight: bolder">Currency
+												    </td>
+												    <td style="text-align:center;font-weight: bolder">{{withdraw_details.data.currencyName}}
+												    </td>
+											    </tr>
+											    <tr>
+												    <td style="text-align: center;color:#47A447;font-weight: bolder">Transaction Reference
+												    </td>
+												    <td style="text-align:center;font-weight: bolder">{{withdraw_details.data.transferRef}}
+												    </td>
+											    </tr>
+											    <tr>
+												    <td style="text-align: center;color:#47A447;font-weight: bolder">Send Date
+												    </td>
+												    <td style="text-align:center;font-weight: bolder">{{withdraw_details.data.ts}}
+												    </td>
+											    </tr>
+											    <tr class="success">
+
+												    <td style="text-align: center;color:#47A447;font-weight: bolder">Sender Name
+												    </td>
+												    <td style="text-align:center;font-weight: bolder">{{withdraw_details.data.senderFname}}   {{withdraw_details.data.senderSurname}}
+												    </td>
+
+											    </tr>
+
+
+											    <tr>
+												    <td style="text-align: center;color:#47A447;font-weight: bolder">Sender phone number
+												    </td>
+												    <td style="text-align:center;font-weight: bolder">{{withdraw_details.data.senderPhone}}
+												    </td>
+											    </tr>
+
+
+
+											    <tr>
+												    <td style="text-align: center;color:#47A447;font-weight: bolder">Reciever Name
+												    </td>
+												    <td style="text-align:center;font-weight: bolder">{{withdraw_details.data.receiverFname}}  {{withdraw_details.data.receiverSurname}}
+												    </td>
+											    </tr>
+
+
+
+											    <tr>
+												    <td style="text-align: center;color:#47A447;font-weight: bolder">Source Branch
+												    </td>
+												    <td style="text-align:center;font-weight: bolder">{{withdraw_details.data.fromBranchName}}
+												    </td>
+											    </tr>
+
+
+
+
+
+
+
+
+
+										   </tbody>
+
+							</table>
+							<hr>
+
+						</div>
+					</div>
+
+
+					<div class="row">
+
+
+
+				   <!--     <div class="col-sm-12">-->
+				   <!--          <select class="form-control  my_form_item" name="currency" ng-model="withdraw_complete_data.rid_type_id" placeholder="Reciver Id Type"    ng-options="idtype.getId() as idtype.getName() for idtype in idTypes" style="height: 60px">-->
+
+							<!--<option  value=""> -- </option>-->
+							<!--</select>-->
+			    <!--        </div>-->
+
+
+
+				        <!-- <div class="col-sm-12">
+				             <input type="text" class="form-control  my_form_item" name="transaction_code" placeholder="Reciever Id No"  ng-model="withdraw_complete_data.rid_no" required style="margin-top: 3%;height: 60px">
+				        </div> -->
+
+				        <div class="col-sm-12">
+				           <input type="text" class="form-control  my_form_item" name="transaction_code" placeholder="Transaction reference"  ng-model="withdraw_complete_data.transaction_reference" required style="margin-top: 3%;height: 60px">
+				        </div>
+
+						 <div class="col-sm-12">
+				           <input type="password" class="form-control  my_form_item" name="transaction_code" placeholder="your password"  ng-model="withdraw_complete_data.transaction_password" required style="margin-top: 3%;height: 60px">
+				        </div>
+
+
+
+				        <div class="col-sm-12">
+				            <button type="submit" class="form-control noborder_radius bold btn-success submit_but" style="margin-top:5%;height:50px" ng-click="completeWithdraw()"><text style="font-weight: bold;"> Complete Withdraw <i class="glyphicon glyphicon-ok" ></i> </button>
+				        </div>
+
+					</div>
+
+
+
+
+				</section>
+		</div>
+
+		<!-- /end withdraw money -->
+
+
+		<!-- direct debits -->
+
+			 <div class="container" id="face_exchange_money" ng-if="toggle_value==7">
+						<section class="panel panel-body"  style="border-radius:0px">
+						    <div class="row">
+						      <div class="col-sm-12">
+
+						          <h3 style="color:#565656; text-align: center;font-weight: bold">Direct Account Withdraws</h3>
+
+						      </div>
+						    </div>
+						    <hr>
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="row">
+
+						                                <div class="col-sm-4">
+
+						                                <label for="exampleInputEmail1" class="form_label">Amount</label>
+						                                </div>
+						                                <div class="col-sm-8">
+
+
+
+							                                <input type="text" class="form-control  my_form_item" name="amount" placeholder="amount"  ng-model="direct_debit_data.amount" required data-type='number'>
+							                                <span ng-show="my_transaction_form.amount.$error.required"><text style="font-size: 30px; color :#B00606">*</text></span>
+
+
+
+
+
+
+						                                </div>
+					                                </div>
+
+					                                <div class="row">
+						                                <div class="col-sm-4">
+						                                <label for="exampleInputEmail1" class="form_label">currency</label>
+						                                </div>
+						                                <div class="col-sm-8">
+						                                <select class="form-control  my_form_item" name="currency" ng-model="direct_debit_data.currency_id"    ng-options="currency.getId() as currency.getName() for currency in currencies">
+
+												      		     <option  value=""><text style="color:#e3e3e3"> currency </text></option>
+												 		      </select>
+
+						                                </div>
+					                                </div>
+					                                <hr>
+
+		                                            <br>
+					                                <div class="row">
+						                                <div class="col-sm-4">
+						                                <label for="exampleInputEmail1" class="form_label">Sender </label>
+						                                </div>
+						                                <div class="col-sm-8">
+						                                <input type="text" class="form-control  my_form_item" name="exchange_rate" placeholder="sender to account"  ng-model="direct_debit_data.sender" required  >
+
+						                                </div>
+					                                </div>
+		                                            <br>
+		                                            <div class="row">
+						                                <div class="col-sm-4">
+						                                <label for="exampleInputEmail1" class="form_label">Reciever </label>
+						                                </div>
+						                                <div class="col-sm-8">
+						                                <input type="text" class="form-control  my_form_item" name="exchange_rate" placeholder="reciever"  ng-model="direct_debit_data.reciever" required  >
+
+						                                </div>
+					                                </div>
+		                                            <br>
+
+		                                            <div class="row">
+						                                <div class="col-sm-4">
+						                                <label for="exampleInputEmail1" class="form_label">Account Number</label>
+						                                </div>
+						                                <div class="col-sm-8">
+						                                <input type="text" class="form-control  my_form_item" name="exchange_rate" placeholder="account number"  ng-model="direct_debit_data.account_number" required >
+
+						                                </div>
+					                                </div>
+		                                            <br>
+
+					                                <div class="row">
+						                                <div class="col-sm-12">
+												            <button type="submit" class="form-control noborder_radius bold btn-success submit_but" style="margin-top:5%;height:60px" ng-click="sendDirectDebit()"><text style="font-weight: bold;" ng-disabled="debitting==1"> Complete payement <i class="glyphicon glyphicon-ok" ></i> </button>
+												        </div>
+											        </div>
+								</div>
+
+								<div class="col-sm-6">
+
+						                            <div class="row">
+						                            	<div class="col-sm-3">
+						                            	</div>
+						                            	<div class="col-sm-6">
+						                            		<img style="height: 300px;width:300px" src="uploads/cash_advance.png" class="trac_img">
+						                            	</div>
+						                            	<div class="col-sm-3">
+						                            	</div>
+
+						                            </div>
+
+					                            </div>
+							    </div>
+						</section>
+			 </div>
+
+		<!-- /end direct debits -->
+
+
+
+
+
+
+
+		<!-- reset password -->
+		<div class ="container" id="face_reset_password" ng-show="toggle_value==28">
+				<div class="row">
+			    	<section class="panel panel-body"  style="border-radius:0px">
+
+			    		<form role="form" name='country_form'  ng-submit="sendReset()" novalidate>
+			                <div class="tab-content">
+
+
+			                    <div class="tab-pane active" role="tabpanel" id="step1">
+			                        <div class="step1">
+			                            <div class="row">
+
+			                            <hr>
+			                            <div class="col-md-6">
+
+			                            <h4 style="color:#565656; text-align: center;font-weight: bold">Reset Password</h4>
+
+			                            <hr/>
+
+			                                <div class="row">
+				                                <div class="col-sm-4">
+				                                <label for="exampleInputEmail1" class="form_label">Old password</label>
+				                                </div>
+				                                <div class="col-sm-8">
+				                                <input type="password" class="form-control  my_form_item" name="country_name" placeholder="username"  ng-model="reset_password.old_password" required>
+				                                </div>
+			                                </div>
+			                                <div class="row">
+				                                <div class="col-sm-4">
+				                                <label for="exampleInputEmail1" class="form_label"> New password</label>
+				                                </div>
+				                                <div class="col-sm-8">
+				                                <input type="password" class="form-control  my_form_item" name="country_name" placeholder="password"  ng-model="reset_password.new_password" required>
+				                                </div>
+			                                </div>
+
+			                                <div class="row">
+				                                <div class="col-sm-12">
+				                                  <button type="submit" class="form-control noborder_radius bold btn-success submit_but" style="margin-top:5%;height:50px"><text style="font-weight: bold;"> Reset password<i class="glyphicon glyphicon-ok"></i> </button>
+				                                </div>
+			                                </div>
+
+			                             <hr/>
+
+
+
+			                            </div>
+			                            <div class="col-sm-6">
+
+				                            <div class="row">
+				                            	<div class="col-sm-3">
+				                            	</div>
+				                            	<div class="col-sm-6">
+				                            		<img style="height: 300px;width:300px" src="uploads/cash_advance.png" class="trac_img">
+				                            	</div>
+				                            	<div class="col-sm-3">
+				                            	</div>
+
+				                            </div>
+
+			                            </div>
+
+
+
+
+			                        </div>
+
+
+			                        </div>
+
+			                    </div>
+
+			                </div>
+			            </form>
+
+			    	</section>
+			    </div>
+	    </div>
+
+		<!-- /end reset password -->
+
+
+
+
+<!-- section modal for suceesss -->
+
+<!--Success Modal Templates-->
+    <div id="modal-success" class="modal modal-message modal-success fade" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <i class="glyphicon glyphicon-check"></i>
+                </div>
+                <div class="modal-title">Success</div>
+                <div class="modal-body">You have done great!</div>
+                <div class="modal-footer">
+                    <button type="button submit_but" class="btn btn-success" data-dismiss="modal">OK</button>
+                </div>
+            </div> <!-- / .modal-content -->
+        </div> <!-- / .modal-dialog -->
+    </div>
+    <!--End Success Modal Templates-->
+
+<!-- end section modal for success -->
+
+
+
+<!-- section success / failure template -->
+
+<div class="container" id="face_transfer_confirmation" ng-if="toggle_value==21">
+				<section class="panel panel-body"  style="border-radius:0px">
+					<div class="row">
+
+						<div class="col-sm-12">
+
+						 <div class="notify successbox">
+					        <h1>Success!</h1>
+					        <span class="alerticon"><img src="http://s22.postimg.org/i5iji9hv1/check.png" alt="checkmark" /></span>
+					        <p>{{success_msg}}</p>
+					      </div>
+
+						</div>
+
+					</div>
+				</section>
+</div>
+
+<div class="container" id="face_transfer_confirmation" ng-if="toggle_value==22">
+				<section class="panel panel-body"  style="border-radius:0px">
+					<div class="row">
+
+						<div class="col-sm-12">
+
+						  <div class="notify errorbox">
+					        <h1>Error !</h1>
+					        <span class="alerticon"><img src="http://s22.postimg.org/ulf9c0b71/error.png" alt="error" /></span>
+					        <p>{{error_msg}}.</p>
+					      </div>
+
+						</div>
+
+					</div>
+				</section>
+</div>
+
+<!-- only for fund transfer -->
+<div class="container" id="face_transfer_confirmation" ng-if="toggle_value==23">
+				<section class="panel panel-body"  style="border-radius:0px">
+					<div class="row">
+
+						<div class="col-sm-12">
+
+						 <div class="notify successbox">
+					        <h1>Success!</h1>
+					        <span class="alerticon"><img src="http://s22.postimg.org/i5iji9hv1/check.png" alt="checkmark" /></span>
+					        <p>You Have Successfully completed transaction. your transaction reference is<text style="color:#088808;font-weight: bolder;font-size:25px;">  {{trans_reference}}</text></p>
+					      </div>
+
+						</div>
+
+					</div>
+				</section>
+</div>
+<!-- end / only for fund transfer -->
+
+
+<!-- /end section failure template -->
+
+
+
+
+
+
+    <!--  modal please first chill us  -->
+
+
+
+
+     <!-- /table of transactions -->
+
+     <div class="container" id="face_exchange_money" ng-if="toggle_value==25">
+				<section class="panel panel-body"  style="border-radius:0px">
+				    <div class="row">
+				      <div class="col-sm-12">
+
+				          <h3 style="color:#565656; text-align: center;font-weight: bold">Xchange moneys</h3>
+
+				      </div>
+				    </div>
+				    <hr>
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="row">
+
+				                                <div class="col-sm-4">
+
+				                                <label for="exampleInputEmail1" class="form_label">Amount</label>
+				                                </div>
+				                                <div class="col-sm-8">
+
+
+
+					                                <input type="text" class="form-control  my_form_item" name="amount" placeholder="amount"  data-type='number' ng-model="exchange_data.amount" required >
+					                                <span ng-show="my_transaction_form.amount.$error.required"><text style="font-size: 30px; color :#B00606">*</text></span>
+
+
+
+
+
+
+				                                </div>
+			                                </div>
+			                                 <div class="row">
+				                                <div class="col-sm-4">
+				                                <label for="exampleInputEmail1" class="form_label">Initial Currency</label>
+				                                </div>
+				                                <div class="col-sm-8">
+				                                  <select class="form-control  my_form_item" name="currency" ng-model="exchange_data.from_currency_id"    ng-options="currency.getId() as currency.getName() for currency in currencies">
+
+										      		     <option  value=""><text style="color:#e3e3e3"> -- </text></option>
+										 		      </select>
+			                                    </div>
+			                                </div>
+			                                <hr>
+			                                <div class="row">
+				                                <div class="col-sm-4">
+				                                <label for="exampleInputEmail1" class="form_label">Change Money to</label>
+				                                </div>
+				                                <div class="col-sm-8">
+				                                  <select class="form-control  my_form_item" name="currency" ng-model="exchange_data.to_currency_id"    ng-options="currency.getId() as currency.getName() for currency in currencies">
+
+										      		 <option  value=""> -- </option>
+										 		   </select>
+			                                    </div>
+			                                </div>
+                                            <br>
+			                                <div class="row">
+				                                <div class="col-sm-4">
+				                                <label for="exampleInputEmail1" class="form_label">Xchange rate </label>
+				                                </div>
+				                                <div class="col-sm-8">
+				                                <input type="text" class="form-control  my_form_item" name="exchange_rate" placeholder="exchange rate from Currency account"  ng-model="exchange_data.exchange_rate" required ng-change="xchangeInputChanged_x()" ng-model-options="{debounce: 1000}">
+
+				                                </div>
+			                                </div>
+                                            <br>
+			                                <div class="row">
+				                                <div class="col-sm-4">
+				                                <label for="exampleInputEmail1" class="form_label">Amount from rate </label>
+				                                </div>
+				                                <div class="col-sm-8">
+				                                <input type="text" class="form-control  my_form_item" name="transaction_code" placeholder="amount from rate"  ng-model="exchange_data.amount_from_rate" required readonly>
+				                                </div>
+			                                </div>
+
+			                                <div class="row">
+				                                <div class="col-sm-12">
+										            <button type="submit" class="form-control noborder_radius bold btn-success submit_but" style="margin-top:5%;height:60px" ng-click="send_exchange_data()" ng-disabled="exchanging==1"><text style="font-weight: bold;"> Xchange Money <i class="glyphicon glyphicon-ok" ></i> </button>
+										        </div>
+									        </div>
+						</div>
+
+						<div class="col-sm-6">
+
+				                            <div class="row">
+				                            	<div class="col-sm-3">
+				                            	</div>
+				                            	<div class="col-sm-6">
+				                            		<img style="height: 300px;width:300px" src="uploads/cash_advance.png" class="trac_img">
+				                            	</div>
+				                            	<div class="col-sm-3">
+				                            	</div>
+
+				                            </div>
+
+			                            </div>
+					    </div>
+				</section>
+	 </div>
+
+
+	 <div class="container" style="width:100%" ng-if="toggle_value==35">
+	     <div class="row">
+			    <div class="panel panel-body"  style="border-radius:0px;" >
+						 	<!-- <div ng-include="'html/home_templates/fill_data_table.html'"></div> -->
+				   <div class=""  style="border-radius:0px;width:100%;border:1px #e1e1e1 solid">
+					      <div id="tabs" class="c-tabs no-js">
+					        <div class="c-tabs-nav">
+					          <a ng-click="goToAccountBalancesReport()" class="c-tabs-nav__link is-active" style="text-decoration: none;cursor: pointer">
+					            <i class="fa fa-book"></i>
+					            <span>Accounts</span>
+					          </a>
+					          <a ng-click="goToAccountBalancesReport()" class="c-tabs-nav__link is-active" style="text-decoration: none;cursor: pointer">
+					            <i class="ion-ios-pie"></i>
+					            <span>Account Balances</span>
+					          </a>
+					          <a ng-click="goToTransactionsReport()" class="c-tabs-nav__link is-active" style="text-decoration: none;cursor: pointer">
+					            <i class="ion ion-android-bicycle"></i>
+					            <span>Transactions</span>
+					          </a>
+					          <a ng-disabled class="c-tabs-nav__link is-active" style="text-decoration: none;cursor: pointer">
+					            <i class="ion ion-navigate"></i>
+					            <span>Charges</span>
+					          </a>
+					          <a ng-disabled class="c-tabs-nav__link is-active" style="text-decoration: none;cursor: pointer">
+					            <i class="ion ion-ios-loop-strong"></i>
+					            <span>Money Exchanges</span>
+					          </a>
+
+					          <a ng-disabled class="c-tabs-nav__link is-active" style="text-decoration: none;cursor: pointer">
+					            <i class="ion ion-navigate"></i>
+					            <span>Simple Loans</span>
+					          </a>
+
+
+					        </div>
+					        <div class="c-tab is-active">
+					          <!-- level 2 -->
+					          <div class="c-tab__content" ng-if="report_toggle==0">
+
+							           <div class="row" ng-if="balancing_report_toggle==0">
+
+
+										   <div class="col-md-12 panel panel-body" style="border-radius :0px" >
+										                <h4>Branch name : {{balancing_report_data.branchName}} </h4>
+										                <div class="row">
+										                  <div class="col-sm-6">
+										                  	<div class="row">
+										                  		<div class="col-sm-12">
+														             <select class="form-control  my_form_item" name="currency" ng-model="balancing_report_data.branch_id" placeholder="Reciver Id Type"    ng-options="branch.getId() as branch.getName() for branch in branches" style="height: 40px" ng-change="getBalancingReport()">
+
+																	<option  value=""> -- </option>
+																	</select>
+													            </div>
+										                  	</div>
+										                  </div>
+										                  <div class="col-sm-6">
+										                  </div>
+
+										                </div>
+
+										                <hr>
+												        <div class="table-responsive" >
+
+
+														        <table id="mytable" class="table table-bordered table-striped" >
+
+														            <thead>
+
+
+														                   <th style="color :#234E23;text-align: center">Account Name</th>
+
+														                   <th style="color :#234E23;text-align: center">Opening Balance</th>
+
+														                   <th style="color :#234E23;text-align: center">Closing Balance</th>
+
+
+
+
+														            </thead>
+																	    <tbody id="my_account_table">
+
+																		    <tr class="success" ng-repeat="account in reported_account_balances track by $index">
+
+																		    <td style="text-align: center">{{account.accountName}}
+																		    </td>
+																		    <td style="text-align: center" >{{account.openingBalance}}
+																		    </td>
+																		    <td style="text-align: center" >{{account.closingBalance}}
+																		    </td>
+
+
+
+																		    </tr>
+
+
+
+
+
+
+																	   </tbody>
+
+														        </table>
+
+																<div class="clearfix"></div>
+
+
+												        </div>
+
+										        </div>
+
+
+									</div>
+
+
+
+
+									<div class="row" ng-if="balancing_report_toggle==1">
+
+
+										        <div class="col-md-12 panel panel-body" style="border-radius :0px" >
+										                <h4>Branch name : {{reported_account_balances[0].branchName}} </h4>
+
+										                <hr>
+												        <div class="table-responsive" >
+
+
+														        <table id="mytable" class="table table-bordred table-striped" >
+
+														            <thead>
+
+
+														                   <th style="color :#234E23;text-align: center">Account Name</th>
+
+														                   <th style="color :#234E23;text-align: center">Opening Balance</th>
+
+														                   <th style="color :#234E23;text-align: center">Closing Balance</th>
+
+
+
+
+														            </thead>
+																	    <tbody id="my_account_table">
+
+																		    <tr class="success" ng-repeat="account in reported_account_balances track by $index">
+
+																		    <td style="text-align: center">{{account.accountName}}
+																		    </td>
+																		    <td style="text-align: center" >{{account.openingBalance}}
+																		    </td>
+																		    <td style="text-align: center" >{{account.closingBalance}}
+																		    </td>
+
+
+
+																		    </tr>
+
+
+
+
+
+
+																	   </tbody>
+
+														        </table>
+
+																<div class="clearfix"></div>
+
+
+												        </div>
+
+										        </div>
+
+
+									</div>
+
+					          <!-- /end level 3 -->
+					        </div>
+					        <div class="c-tab is-active"  >
+					          <!-- level 2 -->
+					          <div class="c-tab__content" ng-if="report_toggle==1">
+
+									<div class="row" ng-if="balancing_report_toggle==0">
+
+
+										   <div class="col-md-12 panel panel-body" style="border-radius :0px" >
+										                <h4>Branch name : {{balancing_report_data.branchName}} </h4>
+										                <div class="row">
+										                  <div class="col-sm-6">
+										                  	<div class="row">
+										                  		<div class="col-sm-12">
+														             <select class="form-control  my_form_item" name="currency" ng-model="balancing_report_data.branch_id" placeholder="Reciver Id Type"    ng-options="branch.getId() as branch.getName() for branch in branches" style="height: 40px" ng-change="getBalancingReport()">
+
+																	<option  value=""> -- </option>
+																	</select>
+													            </div>
+										                  	</div>
+										                  </div>
+										                  <div class="col-sm-6">
+										                  </div>
+
+										                </div>
+
+										                <hr>
+												        <div class="table-responsive" >
+
+
+														        <table id="mytable" class="table table-bordred table-striped" >
+
+														            <thead>
+
+
+														                   <th style="color :#234E23;text-align: center">Account Name</th>
+
+														                   <th style="color :#234E23;text-align: center">Opening Balance</th>
+
+														                   <th style="color :#234E23;text-align: center">Closing Balance</th>
+
+
+
+
+														            </thead>
+																	    <tbody id="my_account_table">
+
+																		    <tr class="success" ng-repeat="account in reported_account_balances track by $index">
+
+																		    <td style="text-align: center">{{account.accountName}}
+																		    </td>
+																		    <td style="text-align: center" >{{account.openingBalance}}
+																		    </td>
+																		    <td style="text-align: center" >{{account.closingBalance}}
+																		    </td>
+
+
+
+																		    </tr>
+
+
+
+
+
+
+																	   </tbody>
+
+														        </table>
+
+																<div class="clearfix"></div>
+
+
+												        </div>
+
+										        </div>
+
+
+									</div>
+
+
+
+
+									<div class="row" ng-if="balancing_report_toggle==1">
+
+
+										        <div class="col-md-12 panel panel-body" style="border-radius :0px" >
+										                <h4>Branch name : {{reported_account_balances[0].branchName}} </h4>
+
+										                <hr>
+												        <div class="table-responsive" >
+
+
+														        <table id="mytable" class="table table-bordred table-striped" >
+
+														            <thead>
+
+
+														                   <th style="color :#234E23;text-align: center">Account Name</th>
+
+														                   <th style="color :#234E23;text-align: center">Opening Balance</th>
+
+														                   <th style="color :#234E23;text-align: center">Closing Balance</th>
+
+
+
+
+														            </thead>
+																	    <tbody id="my_account_table">
+
+																		    <tr class="success" ng-repeat="account in reported_account_balances track by $index">
+
+																		    <td style="text-align: center">{{account.accountName}}
+																		    </td>
+																		    <td style="text-align: center" >{{account.openingBalance}}
+																		    </td>
+																		    <td style="text-align: center" >{{account.closingBalance}}
+																		    </td>
+
+
+
+																		    </tr>
+
+
+
+
+
+
+																	   </tbody>
+
+														        </table>
+
+																<div class="clearfix"></div>
+
+
+												        </div>
+
+										        </div>
+
+
+									</div>
+
+					          </div>
+					          <!-- /end level 2 -->
+
+					          <!-- level 3 -->
+
+					          <!-- /end level 3 -->
+					        </div>
+					        <div class="c-tab is-active" >
+					          <div class="c-tab__content" ng-if="report_toggle==2">
+
+
+											<div class="row" ng-if="transaction_report_toggle==0">
+
+
+										        <div class="col-md-12 panel panel-body" style="border-radius :0px" >
+										                <h4>Branch name : {{transfer_logs_data.branchName}} </h4>
+
+										                <div class="row">
+										                  <div class="col-sm-6">
+										                  	<div class="row">
+												                  <div class="col-sm-12">
+																             <select class="form-control  my_form_item" name="currency" ng-model="transfer_logs_data.branch_id" placeholder="Reciever Id Type"    ng-options="branch.getId() as branch.getName() for branch in branches" style="height: 40px" ng-change="getTransferRecords()">
+																							 	<option  value=""> -- </option>
+																						 </select>
+															            </div>
+
+										                  	</div>
+                                        <br/>
+                                        <h4>Date : </h4>
+                                        <div class="row">
+                                          <div class="col-sm-12">
+
+                                            <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text" style="height:46px"/>
+                                            <script>
+                                                $(document).ready(function(){
+                                                  var date_input=$('input[name="date"]'); //our date input has the name "date"
+                                                  var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+                                                  var options={
+                                                    format: 'mm/dd/yyyy',
+                                                    container: container,
+                                                    todayHighlight: true,
+                                                    autoclose: true,
+                                                  };
+                                                  date_input.datepicker(options);
+                                                })
+                                            </script>
+
+                                          </div>
+                                        </div>
+										                  </div>
+										                  <div class="col-sm-6">
+										                  </div>
+
+										                </div>
+
+										                <hr>
+												        <div class="table-responsive" >
+
+
+														        <table id="mytable" class="table table-bordred table-striped" >
+
+														            <thead>
+
+
+														                   <th style="color :#234E23;text-align: center">Sender</th>
+
+														                   <th style="color :#234E23;text-align: center">Receiver</th>
+
+														                   <th style="color :#234E23;text-align: center">Amount</th>
+
+														                   <th style="color :#234E23;text-align: center">Currency</th>
+
+														                   <th style="color :#234E23;text-align: center">Time</th>
+
+														                   <th style="color :#234E23;text-align: center">Status</th>
+
+
+
+
+														            </thead>
+																	    <tbody id="my_account_table">
+
+																		    <tr class="success" ng-repeat="record in transfer_records_reported track by $index">
+
+																		    <td style="text-align: center">{{record.senderSurname}} {{record.senderFname}}
+																		    </td>
+																		    <td style="text-align: center" >{{record.receiverSurname}} {{record.receiverFname}}
+																		    </td>
+																		    <td style="text-align: center" >{{record.amount}}
+																		    </td>
+
+																		    <td style="text-align: center" >{{record.currency}}
+																		    </td>
+
+																		    <td style="text-align: center" >{{record.ts}}
+																		    </td>
+
+																		    <td style="text-align: center" >{{record.status}}
+																		    </td>
+
+
+
+																		    </tr>
+
+
+
+
+
+
+																	   </tbody>
+
+														        </table>
+
+																<div class="clearfix"></div>
+
+
+												        </div>
+
+										        </div>
+
+
+											</div>
+
+
+											<div class="row" ng-if="transaction_report_toggle==1">
+
+
+										        <div class="col-md-12 panel panel-body" style="border-radius :0px" >
+										                <h4>My Daily Transactions : {{accounts_branch_name}} </h4>
+										                <div class="row">
+										                  <div class="col-sm-6">
+
+										                  </div>
+										                  <div class="col-sm-6">
+										                  </div>
+
+										                </div>
+
+										                <hr>
+												        <div class="table-responsive" >
+
+
+														        <table id="mytable" class="table table-bordred table-striped" >
+
+														            <thead>
+
+
+														                   <th style="color :#234E23;text-align: center">Sender</th>
+
+														                   <th style="color :#234E23;text-align: center">Receiver</th>
+
+														                   <th style="color :#234E23;text-align: center">Amount</th>
+
+														                   <th style="color :#234E23;text-align: center">Currency</th>
+
+														                   <th style="color :#234E23;text-align: center">Time</th>
+
+														                   <th style="color :#234E23;text-align: center">Status</th>
+
+
+
+
+														            </thead>
+																	    <tbody id="my_account_table">
+
+																		    <tr class="success" ng-repeat="record in transfer_records_reported track by $index">
+
+																		    <td style="text-align: center">{{record.senderSurname}} {{record.senderFname}}
+																		    </td>
+																		    <td style="text-align: center" >{{record.receiverSurname}} {{record.receiverFname}}
+																		    </td>
+																		    <td style="text-align: center" >{{record.amount}}
+																		    </td>
+
+																		    <td style="text-align: center" >{{record.currency}}
+																		    </td>
+
+																		    <td style="text-align: center" >{{record.ts}}
+																		    </td>
+
+																		    <td style="text-align: center" >{{record.status}}
+																		    </td>
+
+
+
+																		    </tr>
+
+
+
+
+
+
+																	   </tbody>
+
+														        </table>
+
+																<div class="clearfix"></div>
+
+
+												        </div>
+
+										        </div>
+
+
+											</div>
+
+
+					          </div>
+					        </div>
+					        <div class="c-tab is-active" >
+					          <div class="c-tab__content" ng-if="report_toggle==3">
+					            <h2>Stay Busy</h2>
+					            <p>Calendar ipsum dolor sit amet, consectetur adipisicing elit. Ipsam quo minus voluptate unde tempore eveniet consequuntur in, quod animi libero rem similique pariatur quos, et eum nisi ducimus, architecto voluptatibus!</p>
+					            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto aspernatur natus dolorem fuga cumque optio saepe corrupti earum. Ipsam quaerat asperiores similique omnis excepturi temporibus ab eum magnam ipsa, odio.</p>
+					          </div>
+					        </div>
+					        <div class="c-tab">
+					          <div class="c-tab__content">
+					            <h2>Change It Up</h2>
+					            <p>Settings ipsum dolor sit amet, consectetur adipisicing elit. Ipsam quo minus voluptate unde tempore eveniet consequuntur in, quod animi libero rem similique pariatur quos, et eum nisi ducimus, architecto voluptatibus!</p>
+					            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto aspernatur natus dolorem fuga cumque optio saepe corrupti earum. Ipsam quaerat asperiores similique omnis excepturi temporibus ab eum magnam ipsa, odio.</p>
+					          </div>
+					        </div>
+					      </div>
+					</div>
+				  </div>
+
+              </div>
+        </div>
+
+
+
+	 </div>
+
+
+
+
+	 <div class ="container" id="face_credit_transfer_account" ng-if="toggle_value==59">
+				<div class="row">
+			    	<section class="panel panel-body"  style="border-radius:0px">
+
+
+			                <div class="tab-content">
+
+
+			                    <div class="tab-pane active" role="tabpanel" id="step1">
+			                        <div class="step1">
+			                            <div class="row">
+			                            <div class="col-md-6">
+
+			                            	<form role="form" name='transaction_form' enctype="multipart/formdata" ng-submit="sendMoneyToBranch()">
+
+			                                <h4 style="color:#565656; text-align: center;font-weight: bold">Send Money To Other Branch </h4>
+			                                <hr/>
+
+			                                <div class="row">
+				                                <div class="col-sm-4">
+				                                <label for="exampleInputEmail1" class="form_label">Amount</label>
+				                                </div>
+				                                <div class="col-sm-8">
+
+					                                    	<input type="text" class="form-control  my_form_item" name="transaction_code" placeholder="amount"  ng-model="send_money_data.amount" required>
+
+
+					                           </div>
+				                            </div>
+
+
+			                                <div class="row">
+				                                <div class="col-sm-4">
+				                                <label for="exampleInputEmail1" class="form_label">From Account</label>
+				                                </div>
+				                                <div class="col-sm-8">
+				                                  <select class="form-control  my_form_item" name="account" ng-model="send_money_data.from_account_id"    ng-options="transfer_account.getId() as transfer_account.getName() for transfer_account in transfer_accounts">
+
+										      		 <option  value=""> -- </option>
+										 		   </select>
+			                                    </div>
+			                                </div>
+
+			                                <div class="row">
+				                                <div class="col-sm-4">
+				                                <label for="exampleInputEmail1" class="form_label">To Account</label>
+				                                </div>
+				                                <div class="col-sm-8">
+				                                  <select class="form-control  my_form_item" name="account" ng-model="send_money_data.to_account_id"    ng-options="transfer_account.getId() as transfer_account.getName() for transfer_account in transfer_accounts">
+
+										      		 <option  value=""> -- </option>
+										 		   </select>
+			                                    </div>
+			                                </div>
+
+
+
+			                                <div class="row">
+				                                <div class="col-sm-4">
+				                                <label for="exampleInputEmail1" class="form_label">charge</label>
+				                                </div>
+				                                <div class="col-sm-8">
+				                                <input type="text" class="form-control  my_form_item" name="transaction_code" placeholder="charge"  ng-model="send_money_data.charge" required>
+				                                </div>
+			                                </div>
+
+
+
+			                                <div class="row">
+				                                <div class="col-sm-12">
+				                                  <button type="submit" class="form-control noborder_radius bold btn-success submit_but" style="margin-top:5%;height:50px"><text style="font-weight: bold;" ng-disabled="branch_sending==1"> Submit Account Credit<i class="glyphicon glyphicon-ok"></i> </button>
+				                                </div>
+			                                </div>
+			                               </form>
+
+			                            </div>
+
+
+			                            <div class="col-sm-6">
+
+			                            	<form role="form" name='transaction_form' enctype="multipart/formdata" ng-submit="sendMoneyToIndividual()">
+
+				                           <h4 style="color:#565656; text-align: center;font-weight: bold">Send Money To Individual</h4>
+			                                <hr/>
+
+			                                <div class="row">
+				                                <div class="col-sm-4">
+				                                    <label for="exampleInputEmail1" class="form_label">Amount</label>
+				                                </div>
+
+				                                <div class="col-sm-8">
+
+					                                    	<input type="text" class="form-control  my_form_item" name="transaction_code" placeholder="amount"  ng-model="send_money_indi.amount" required>
+
+
+					                           </div>
+				                            </div>
+
+
+			                                <div class="row">
+				                                <div class="col-sm-4">
+				                                <label for="exampleInputEmail1" class="form_label">currency</label>
+				                                </div>
+				                                <div class="col-sm-8">
+				                                  <select class="form-control  my_form_item" name="account" ng-model="send_money_indi.currency_id"    ng-options="currency.getId() as currency.getName() for currency in currencies">
+
+										      		 <option  value=""> -- </option>
+										 		   </select>
+			                                    </div>
+			                                </div>
+
+
+			                                <div class="row">
+				                                <div class="col-sm-4">
+				                                <label for="exampleInputEmail1" class="form_label">Reciever name</label>
+				                                </div>
+				                                <div class="col-sm-8">
+				                                <input type="text" class="form-control  my_form_item" name="transaction_code" placeholder="reciever"  ng-model="send_money_indi.reciever" required>
+				                                </div>
+			                                </div>
+
+
+
+
+			                                <div class="row">
+				                                <div class="col-sm-4">
+				                                <label for="exampleInputEmail1" class="form_label">charge</label>
+				                                </div>
+				                                <div class="col-sm-8">
+				                                <input type="text" class="form-control  my_form_item" name="transaction_code" placeholder="charge"  ng-model="send_money_indi.charge" required>
+				                                </div>
+			                                </div>
+
+			                                <div class="row">
+				                                <div class="col-sm-4">
+				                                <label for="exampleInputEmail1" class="form_label">details</label>
+				                                </div>
+				                                <div class="col-sm-8">
+				                                <textarea type="text" class="form-control  my_form_item" name="transaction_code" placeholder="charge"  ng-model="send_money_indi.details" required></textarea>
+				                                </div>
+			                                </div>
+
+
+
+			                                <div class="row">
+				                                <div class="col-sm-12">
+				                                  <button type="submit" class="form-control noborder_radius bold btn-success submit_but" style="margin-top:5%;height:50px"><text style="font-weight: bold;" ng-disabled="indi_sending==1"> Submit Account Credit<i class="glyphicon glyphicon-ok"></i> </button>
+				                                </div>
+			                                </div>
+			                                </form>
+
+			                            </div>
+
+			                        </div>
+
+
+			                        </div>
+
+			                    </div>
+
+			                </div>
+
+
+			    	</section>
+			    </div>
+	</div>
+
+  <div class="container" style="width:100%" ng-if="toggle_value==36 && report_toggle_value==1" >
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel panel-body">
+                <!-- Default panel contents -->
+                <div class="panel-heading">
+                    <h2 class="panel-title" style="font-weight: bold;color:#2196F3">
+                      <text style="font-size:19px"> Cash  report As of : <text style="color:#787878"> {{todays_date}} </text></text>
+                    </h2>
+                </div>
+                <div class="panel-body">
+                    <h5>
+                      <text style="font-weight:bold;">Report to :</text> <text style="color:#2E7D32;font-weight:bold">  Mr {{me.firstName}} {{me.surname}}
+                    </h5>
+                </div>
+                    <ul class="list-group">
+
+
+                            <li class="list-group-item" ng-repeat="full_branch in report_info">
+                                <h4 style="font-weight:bold">Branch Name : {{full_branch.branch.name}}</h4>
+                                <table class="table table-hover">
+
+                                    <tbody>
+
+                                      <tr ng-repeat="acc in full_branch.my_accounts">
+                                        <td>Opening Balance({{acc.currency}}):&nbsp;&nbsp;&nbsp;<text style="font-weight: normal;color:#01579B;font-size:18px;">{{acc.openingBalance}}<text style="font-size:12px;color:#787878"> {{acc.currency}}</text></text></td>
+                                      </tr>
+
+                                        <tr>
+                                          <td><span style="width:50px">No of transactions:</span>&nbsp;<text style="font-weight: normal;color:#B71C1C;font-size:20px;">{{full_branch.transaction_no}}</text></td>
+
+                                        </tr>
+
+                                        <tr>
+                                          <td><span style="width:50px">Total Charges:</span>&nbsp;<text style="font-weight: normal;color:#2E7D32;font-size:20px;">{{full_branch.transaction_no}}</text></td>
+
+
+                                        </tr>
+
+                                        <tr ng-repeat="acc in full_branch.my_accounts">
+                                          <td><text style="font-size:14px">Account Balance({{acc.currency}}):</text>&nbsp;&nbsp;&nbsp;<text style="font-weight: normal;color:#000000;font-size:18px;">{{acc.closingBalance}}</text><text style="font-size:12px;color:#696969"> {{acc.currency}}</text></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </li>
+
+
+
+
+
+                    </ul>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="container" style="width:100%" ng-if="toggle_value==36 && report_toggle_value==2" >
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel panel-body">
+                <!-- Default panel contents -->
+                <div class="panel-heading">
+                    <h2 class="panel-title" style="font-weight: bold;color:#2196F3">
+                      <text style="font-size:19px"> Cash  report As of : <text style="color:#787878"> {{todays_date}} </text> </text>
+                    </h2>
+                </div>
+                <div class="panel-body">
+                    <h5>
+                      <text style="font-weight:bold;">Report to :</text> <text style="color:#2E7D32;font-weight:bold">  {{me.firstName}} {{me.surname}}
+                    </h5>
+                </div>
+                    <ul class="list-group">
+
+                            <li class="list-group-item" ng-repeat="full_branch in report_info">
+                                <h4 style="font-weight:bold">Branch Name : {{full_branch.branch.name}}</h4>
+                                <table class="table table-hover">
+
+                                    <tbody>
+                                      <tr ng-repeat="acc in full_branch.my_accounts">
+                                        <td>Opening Balance({{acc.currency}}):&nbsp;&nbsp;&nbsp;<text style="font-weight: normal;color:#2196F3;font-size:18px;">{{acc.openingBalance}}</text><text style="font-size:12px;color:#696969"> {{acc.currency}}</text></td>
+                                      </tr>
+
+                                      <tr>
+                                          <td>No. of Transactions  : &nbsp;&nbsp;&nbsp;<text style="color:#F44336;font-weight:bold;font-size:16px;">
+                                            {{full_branch.transaction_no}}</text></td>
+
+                                      </tr>
+                                        <tr ng-if="full_branch.cashins.length > 0">
+                                            <td style="width:100%" >
+                                              <h6 style="font-weight:bold">Cash Ins</h6>
+                                              <table class="table table-hover">
+                                                  <thead>
+                                                    <tr>
+                                                      <td> Particulars </td>
+                                                      <td> Amount </td>
+                                                      <td> Charge </td>
+                                                      <td> Currency </td>
+                                                    </tr>
+                                                  </thead>
+
+                                                  <tbody>
+                                                    <tr ng-repeat="cashin in full_branch.cashins">
+
+                                                      <td> {{cashin.details}} </td>
+                                                      <td> {{cashin.amount}} </td>
+                                                      <td> {{cashin.charge}} </td>
+                                                      <td> {{cashin.currency}} </td>
+
+                                                    </tr>
+
+
+                                                  </tbody>
+
+                                              </table>
+                                                <H5><text style="font-weight:bold">Total cash Ins :</text> <text style="color:#2E7D32"> $568659695
+                                                </text></h5>
+
+
+                                            </td>
+
+
+                                        </tr>
+                                        <tr ng-if="full_branch.cashouts.length > 0">
+                                            <td style="width:100%">
+                                              <h6 style="font-weight:bold">Cash Outs</h6>
+                                              <table class="table table-hover">
+                                                  <thead>
+                                                    <tr>
+                                                      <td> Particulars </td>
+                                                      <td> Amount </td>
+                                                      <td> Charge </td>
+                                                      <td> Currency </td>
+                                                    </tr>
+                                                  </thead>
+
+                                                  <tbody>
+                                                    <tr ng-repeat="cashout in full_branch.cashouts">
+
+                                                      <td> {{cashout.details}} </td>
+                                                      <td> {{cashout.amount}} </td>
+                                                      <td> {{cashout.charge}} </td>
+                                                      <td> {{cashout.currency}} </td>
+
+                                                    </tr>
+
+
+
+                                                  </tbody>
+
+                                              </table>
+                                              <H5><text style="font-weight:bold">Total cash outs :</text><text style="color:#2E7D32"> $568659695</text></h5>
+
+
+
+
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                            <td>Total charges :&nbsp;&nbsp;&nbsp;<text style="color:#2E7D32;font-weight:normal;font-size:21px;"> $150 </text></td>
+
+
+                                        </tr>
+
+                                        <tr ng-repeat="acc in full_branch.my_accounts">
+                                          <td>Closing Balance({{acc.currency}}):&nbsp;&nbsp;&nbsp;<text style="font-weight: normal;color:#000000;font-size:18px;">{{acc.closingBalance}}</text><text style="font-size:12px;color:#696969"> {{acc.currency}}</text></td>
+                                        </tr>
+
+
+                                    </tbody>
+                                </table>
+                            </li>
+
+
+
+                    </ul>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="container" style="width:100%" ng-if="toggle_value==36 && report_toggle_value==3" >
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel panel-body">
+                <!-- Default panel contents -->
+                <div class="panel-heading">
+                    <h2 class="panel-title" style="font-weight: bold;color:#2196F3">
+                      <text style="font-size:19px"> Cash  report As of : <text style="color:#787878"> {{todays_date}} </text> </text>
+                    </h2>
+                </div>
+                <div class="panel-body">
+                    <h5>
+                      <text style="font-weight:bold;">Report to :</text> <text style="color:#2E7D32;font-weight:bold">  {{me.firstName}} {{me.surname}}
+                    </h5>
+                </div>
+                    <ul class="list-group">
+
+                            <li class="list-group-item">
+                                <h4 style="font-weight:bold">Branch Name : {{report_info.branch.name}}</h4>
+                                <table class="table table-hover">
+
+                                    <tbody>
+                                      <tr ng-repeat="acc in report_info.my_accounts ">
+                                        <td>Opening Balance({{acc.currency}}):&nbsp;&nbsp;&nbsp;<text style="font-weight: normal;color:#2196F3;font-size:18px;">{{acc.openingBalance}}</text><text style="font-size:12px;color:#696969"> {{acc.currency}}</text></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>No. of Transactions  : &nbsp;&nbsp;&nbsp;<text style="color:#F44336;font-weight:bold;font-size:16px;"> {{report_info.transaction_no}}</text></td>
+
+                                        </tr>
+                                        <tr>
+                                            <td style="width:100%" ng-if="report_info.cashins.length > 0">
+                                              <h6 style="font-weight:bold">Cash Ins</h6>
+                                              <table class="table">
+                                                  <thead>
+                                                    <tr>
+                                                      <td> Particulars </td>
+                                                      <td> Amount </td>
+                                                      <td> Charge </td>
+                                                      <td> Currency </td>
+                                                    </tr>
+                                                  </thead>
+
+                                                  <tbody>
+                                                    <tr ng-repeat="cashin in report_info.cashins">
+
+                                                      <td> {{cashin.details}} </td>
+                                                      <td> {{cashin.amount}} </td>
+                                                      <td> {{cashin.charge}} </td>
+                                                      <td> {{cashin.currency}} </td>
+
+                                                    </tr>
+
+
+                                                  </tbody>
+
+                                              </table>
+                                                <H5><text style="font-weight:bold">Total cash Ins :</text> <text style="color:#2E7D32"> $568659695
+                                                </text></h5>
+
+
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                            <td style="width:100%" ng-if="report_info.cashouts.length > 0">
+                                              <h6 style="font-weight:bold">Cash Outs</h6>
+                                              <table class="table table-hover">
+                                                  <thead>
+                                                    <tr>
+                                                      <td> Particulars </td>
+                                                      <td> Amount </td>
+                                                      <td> Charge </td>
+                                                      <td> Currency </td>
+                                                    </tr>
+                                                  </thead>
+
+                                                  <tbody>
+                                                    <tr ng-repeat="cashout in report_info.cashouts">
+
+                                                      <td> {{cashout.details}} </td>
+                                                      <td> {{cashout.amount}} </td>
+                                                      <td> {{cashout.charge}} </td>
+                                                      <td> {{cashout.currency}} </td>
+
+                                                    </tr>
+
+
+
+                                                  </tbody>
+
+                                              </table>
+                                              <H5><text style="font-weight:bold">Total cash outs :</text><text style="color:#2E7D32"> $568659695</text></h5>
+
+
+
+
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                            <td>Total charges :&nbsp;&nbsp;&nbsp;<text style="color:#2E7D32;font-weight:normal;font-size:21px;"> $150 </text></td>
+
+
+                                        </tr>
+                                        <tr ng-repeat="acc in report_info.my_accounts ">
+                                          <td>Closing Balance({{acc.currency}}):&nbsp;&nbsp;&nbsp;<text style="font-weight: normal;color:#000000;font-size:18px;">{{acc.closingBalance}}</text><text style="font-size:12px;color:#696969"> {{acc.currency}}</text>
+                                          </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </li>
+
+
+
+                    </ul>
+            </div>
+        </div>
+    </div>
+  </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<script type="text/ng-template" id="success_modal.html">
+
+	<div id="modal-success" class="modal modal-message modal-success fade" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <i class="glyphicon glyphicon-check"></i>
+                </div>
+                <div class="modal-title">Success</div>
+                <div class="modal-body">{{message}}</div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">OK</button>
+                </div>
+            </div> <!-- / .modal-content -->
+        </div> <!-- / .modal-dialog -->
+    </div>
+
+
+
+
+</script>
+
+<script src="js/tabs.js"></script>
+            <script>
+              var myTabs = tabs({
+                el: '#tabs',
+                tabNavigationLinks: '.c-tabs-nav__link',
+                tabContentContainers: '.c-tab'
+              });
+              myTabs.init();
+            </script>
+
+<script type="text/ng-template" id="error_modal.html">
+
+	<div id="modal-success" class="modal modal-message modal-success fade" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <i class="glyphicon glyphicon-check"></i>
+                </div>
+                <div class="modal-title">Transaction Failed</div>
+                <div class="modal-body">{{message}}</div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">OK</button>
+                </div>
+            </div> <!-- / .modal-content -->
+        </div> <!-- / .modal-dialog -->
+    </div>
+
+
+</script>
+
+<script>
+
+  $(document).ready(function(){
+$("#mytable #checkall").click(function () {
+        if ($("#mytable #checkall").is(':checked')) {
+            $("#mytable input[type=checkbox]").each(function () {
+                $(this).prop("checked", true);
+            });
+
+        } else {
+            $("#mytable input[type=checkbox]").each(function () {
+                $(this).prop("checked", false);
+            });
+        }
+    });
+
+    $("[data-toggle=tooltip]").tooltip();
+});
+
+     $(document).ready(function()
+     {
+     		//$('#step1').hide();
+     });
+
+    $(document).ready(function () {
+    //Initialize tooltips
+    $('.nav-tabs > li a[title]').tooltip();
+
+    //Wizard
+    $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+
+        var $target = $(e.target);
+
+        if ($target.parent().hasClass('disabled')) {
+            return false;
+        }
+    });
+
+    $(".next-step").click(function (e) {
+
+        var $active = $('.wizard .nav-tabs li.active');
+        $active.next().removeClass('disabled');
+        nextTab($active);
+
+    });
+    $(".prev-step").click(function (e) {
+
+        var $active = $('.wizard .nav-tabs li.active');
+        prevTab($active);
+
+    });
+});
+
+function nextTab(elem) {
+    $(elem).next().find('a[data-toggle="tab"]').click();
+}
+function prevTab(elem) {
+    $(elem).prev().find('a[data-toggle="tab"]').click();
+}
+
+
+//according menu
+
+$(document).ready(function()
+{
+
+    $("input[data-type='number']").keyup(function(event){
+      // skip for arrow keys
+      if(event.which >= 37 && event.which <= 40){
+          event.preventDefault();
+      }
+      var $this = $(this);
+      var num = $this.val().replace(/(\s)/g, '');
+      $this.val(num.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1 "));
+
+    });
+});
+
+    </script>

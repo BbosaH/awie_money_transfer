@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html ng-app="starter">
+<head>
+	<title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+	    <style type="text/css">
+            @media screen and (min-width: 320px) {
+
+            .custom-collapse .collapse{
+                        display:block;
+                  }
+            }
+
+            .deco_no{
+              text-decoration:none;
+            }
+
+
+        </style>
+        <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/style.min.css">
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+        <link rel = "stylesheet" href = "externals/bootstrap/css/bootstrap.min.css">
+        <link rel = "stylesheet" href = "css/app.css">
+        <link rel = "stylesheet" href = "css/tabs.css">
+
+				<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+				<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+</head>
+
+<body  class="body_background" >
+
+        <div id="main">
+            <div ng-view>
+
+            </div>
+        <div>
+
+        <!-- external scripts -->
+            <!-- <script src="externals/bootstrap/js/jquery.js"></script> -->
+
+	        <script src="externals/bootstrap/js/bootstrap.min.js"></script>
+
+
+
+
+            <!-- <script src="https://pagead2.googlesyndication.com/pub-config/r20160913/ca-pub-3311815518700050.js"></script> -->
+
+            <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> -->
+
+
+
+            <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/ramda/0.24.1/ramda.min.js"></script> -->
+            <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script> -->
+
+            <script src="externals/angular/angular.min.js"></script>
+            <script src="externals/angular/angular-route.min.js"></script>
+            <script type="text/javascript" src="js/underscore.min.js"></script>
+
+            <script src="https://rawgit.com/dwmkerr/angular-modal-service/master/dst/angular-modal-service.js"></script>
+
+
+        <!-- end external scripts -->
+
+        <!-- internal scripts -->
+				  <script type="text/javascript" src="js/utility.js"></script>
+            <script type="text/javascript" src="js/view_models.js"></script>
+            <script type="text/javascript" src="js/services.js"></script>
+
+	        <script type="text/javascript" src="js/controllers.js"></script>
+	        <script type="text/javascript" src="js/starter.js"></script>
+
+
+
+        <!-- end internal scripts -->
+				<script>
+				$( function() {
+			     $( "#datepicker" ).datepicker();
+			  } );
+				</script>
+
+
+
+
+</body>
+</html>
