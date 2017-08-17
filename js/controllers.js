@@ -917,6 +917,7 @@ angular.module('controllers', ['services','angularModalService'])
                 });
 
                 x.transaction_no = x.transactions_today.length;
+                x.total_charge = (x.cashins)? x.cashins.map(y => Number(y.charge)).reduce((acc,value)=>acc+value,0) : 2;
 
                 return x;
                }
@@ -948,6 +949,8 @@ angular.module('controllers', ['services','angularModalService'])
 
                 x.transaction_no = x.transactions_today.length;
 
+                x.total_charge = (x.cashins)? x.cashins.map(y => Number(y.charge)).reduce((acc,value)=>acc+value,0) : 2;
+
                 return x;
                }
               );
@@ -976,6 +979,7 @@ angular.module('controllers', ['services','angularModalService'])
                $scope.report_info.cashouts = getCashouts($scope.report_info.transactions_today,$scope.all_data.data.currencies,$scope.report_info.branch.id).filter(function( element ) {
                   return (element !== []._ && element !== null && element !== 0)  ;
                });
+               $scope.report_info.total_charge = ($scope.report_info.cashins)? $scope.report_info.cashins.map(y => Number(y.charge)).reduce((acc,value)=>acc+value,0) : 2;
               //  x.cashins = getCashIns(x.transactions_today,$scope.all_data.data.currencies);
               //  x.cashouts = getCashouts(x.transactions_today,$scope.all_data.data.currencies);
 

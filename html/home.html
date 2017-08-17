@@ -2646,7 +2646,7 @@
                                     <tbody>
 
                                       <tr ng-repeat="acc in full_branch.my_accounts">
-                                        <td>Opening Balance({{acc.currency}}):&nbsp;&nbsp;&nbsp;<text style="font-weight: normal;color:#01579B;font-size:18px;">{{acc.openingBalance}}<text style="font-size:12px;color:#787878"> {{acc.currency}}</text></text></td>
+                                        <td>Opening Balance({{acc.currency}}):&nbsp;&nbsp;&nbsp;<text style="font-weight: normal;color:#01579B;font-size:18px;">{{acc.openingBalance}}</text><text style="font-size:12px;color:#787878"> {{acc.currency}}</text></td>
                                       </tr>
 
                                         <tr>
@@ -2654,8 +2654,8 @@
 
                                         </tr>
 
-                                        <tr>
-                                          <td><span style="width:50px">Total Charges:</span>&nbsp;<text style="font-weight: normal;color:#2E7D32;font-size:20px;">{{full_branch.transaction_no}}</text></td>
+                                        <tr ng-repeat="acc in full_branch.my_accounts ">
+                                          <td><span style="width:50px">Profit from Charges ({{acc.currency}}):</span>&nbsp;<text style="font-weight: normal;color:#2E7D32;font-size:20px;">{{full_branch.total_charge}}</text><text style="font-size:12px;color:#787878"> {{acc.currency}}</text></td>
 
 
                                         </tr>
@@ -2771,7 +2771,7 @@
                                                   </tbody>
 
                                               </table>
-                                              <H5><text style="font-weight:bold">Total cash outs :</text><text style="color:#2E7D32"> $568659695</text></h5>
+                                              <H5><text style="font-weight:bold">Total cash outs :</text><text style="color:#2E7D32">$5999</text></h5>
 
 
 
@@ -2780,8 +2780,8 @@
 
 
                                         </tr>
-                                        <tr>
-                                            <td>Total charges :&nbsp;&nbsp;&nbsp;<text style="color:#2E7D32;font-weight:normal;font-size:21px;"> $150 </text></td>
+                                        <tr ng-repeat="acc in full_branch.my_accounts ">
+                                            <td>Profit from charges ({{acc.currency}}) :&nbsp;&nbsp;&nbsp;<text style="color:#2E7D32;font-weight:normal;font-size:21px;"> {{full_branch.total_charge}} </text><text style="font-size:12px;color:#787878"> {{acc.currency}}</text></td>
 
 
                                         </tr>
@@ -2827,7 +2827,7 @@
                                     <tbody>
                                       <tr ng-repeat="acc in report_info.my_accounts ">
                                         <td>Opening Balance({{acc.currency}}):&nbsp;&nbsp;&nbsp;<text style="font-weight: normal;color:#2196F3;font-size:18px;">{{acc.openingBalance}}</text><text style="font-size:12px;color:#696969"> {{acc.currency}}</text></td>
-                                        </tr>
+                                      </tr>
 
                                         <tr>
                                             <td>No. of Transactions  : &nbsp;&nbsp;&nbsp;<text style="color:#F44336;font-weight:bold;font-size:16px;"> {{report_info.transaction_no}}</text></td>
@@ -2860,7 +2860,7 @@
                                                   </tbody>
 
                                               </table>
-                                                <H5><text style="font-weight:bold">Total cash Ins :</text> <text style="color:#2E7D32"> $568659695
+                                                <H5><text style="font-weight:bold">Total cash Ins :</text> <text style="color:#2E7D32"> {{cashin.total_charge}}
                                                 </text></h5>
 
 
@@ -2905,8 +2905,9 @@
 
 
                                         </tr>
-                                        <tr>
-                                            <td>Total charges :&nbsp;&nbsp;&nbsp;<text style="color:#2E7D32;font-weight:normal;font-size:21px;"> $150 </text></td>
+
+                                        <tr ng-repeat="acc in report_info.my_accounts ">
+                                            <td>Total charges ({{acc.currency}}) :&nbsp;&nbsp;&nbsp;<text style="color:#2E7D32;font-weight:normal;font-size:21px;"> {{report_info.total_charge}} </text> <text style="font-size:12px;color:#787878"> {{acc.currency}}</text></td>
 
 
                                         </tr>
