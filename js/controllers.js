@@ -1332,16 +1332,27 @@ angular.module('controllers', ['services','angularModalService'])
         action : 'createexpense',
         amount :'',
         currency_id : '',
+        receiver : '',
         details : '',
         user_id : $scope.user_id,
         session_id : $scope.session_id,
-        branch_id : $scope.branch_id
+        branch_id : $scope.branch_id,
+        exp_toggle : 0,
+        charge : 0
+
     }
 
     $scope.sendExpense = ()=>{
         $scope.spending = 1;
         Utilities.submitData($scope.expense_data,(response)=>{
             $scope.expense_response = JSON.parse(response);
+            $scope.expense_data.amount ='';
+            $scope.expense_data.currency_id='';
+            $scope.expense_data.receiver='';
+            $scope.expense_data.details='',
+            $scope.expense_data.exp_toggle=0;
+            $scope.expense_data.charge=0;
+
             if($scope.expense_response.success==1)
             {       $scope.success_msg = $scope.expense_response.data ;
                     $scope.toggle_value=21;
@@ -1400,26 +1411,34 @@ angular.module('controllers', ['services','angularModalService'])
 
 
     $scope.indi_sending =0;
-
-    $scope.send_money_indi =
-    {
-        controller : 'transfers',
-        action : 'createexpense',
-        amount : '',
-        currency_id : '',
-        details : 'send_to_indi',
-        user_id : $scope.user_id,
-        session_id : $scope.session_id,
-        branch_id : $scope.branch_id
-    }
+    //
+    // $scope.send_money_indi =
+    // {
+    //     controller : 'transfers',
+    //     action : 'createexpense',
+    //     amount : '',
+    //     currency_id : '',
+    //     details : 'send_to_indi',
+    //     user_id : $scope.user_id,
+    //     session_id : $scope.session_id,
+    //     branch_id : $scope.branch_id
+    // }
 
 
 
     $scope.sendMoneyToIndividual = ()=>{
+        $scope.expense_data.exp_toggle=1;
         $scope.indi_sending =1;
-        Utilities.submitData($scope.send_money_indi,(response)=>{
+        Utilities.submitData($scope.expense_data,(response)=>{
 
             $scope.send_money_indi_response = JSON.parse(response);
+            $scope.expense_data.amount ='';
+            $scope.expense_data.currency_id='';
+            $scope.expense_data.receiver='';
+            $scope.expense_data.details='',
+            $scope.expense_data.exp_toggle=0;
+            $scope.expense_data.charge=0;
+
             if($scope.send_money_indi_response.success==1)
             {
                     $scope.success_msg = $scope.send_money_indi_response.data ;
@@ -1434,6 +1453,7 @@ angular.module('controllers', ['services','angularModalService'])
                     $scope.$apply();
 
             }
+
 
         });
 

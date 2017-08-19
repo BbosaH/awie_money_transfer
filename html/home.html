@@ -1517,7 +1517,7 @@
 						    <hr>
 							<div class="row">
 								<div class="col-sm-6">
-									<div class="row">
+									                     <div class="row">
 
 						                                <div class="col-sm-4">
 
@@ -1530,13 +1530,9 @@
 							                                <input type="text" class="form-control  my_form_item" name="amount" placeholder="amount"  ng-model="direct_debit_data.amount" required data-type='number'>
 							                                <span ng-show="my_transaction_form.amount.$error.required"><text style="font-size: 30px; color :#B00606">*</text></span>
 
-
-
-
-
-
 						                                </div>
 					                                </div>
+                                          <br>
 
 					                                <div class="row">
 						                                <div class="col-sm-4">
@@ -1545,8 +1541,8 @@
 						                                <div class="col-sm-8">
 						                                <select class="form-control  my_form_item" name="currency" ng-model="direct_debit_data.currency_id"    ng-options="currency.getId() as currency.getName() for currency in currencies">
 
-												      		     <option  value=""><text style="color:#e3e3e3"> currency </text></option>
-												 		      </select>
+												      		            <option  value=""><text style="color:#e3e3e3"> currency </text></option>
+												 		               </select>
 
 						                                </div>
 					                                </div>
@@ -1558,12 +1554,12 @@
 						                                <label for="exampleInputEmail1" class="form_label">Sender </label>
 						                                </div>
 						                                <div class="col-sm-8">
-						                                <input type="text" class="form-control  my_form_item" name="exchange_rate" placeholder="sender to account"  ng-model="direct_debit_data.sender" required  >
+						                                <input type="text" class="form-control  my_form_item" name="exchange_rate" placeholder="who sent"  ng-model="direct_debit_data.sender" required  >
 
 						                                </div>
 					                                </div>
 		                                            <br>
-		                                            <div class="row">
+		                                      <div class="row">
 						                                <div class="col-sm-4">
 						                                <label for="exampleInputEmail1" class="form_label">Reciever </label>
 						                                </div>
@@ -2546,7 +2542,7 @@
 
 				                                <div class="col-sm-8">
 
-					                                    	<input type="text" class="form-control  my_form_item" name="transaction_code" placeholder="amount"  ng-model="send_money_indi.amount" required>
+					                                    	<input type="text" class="form-control  my_form_item" name="transaction_code" placeholder="amount"  ng-model="expense_data.amount" required>
 
 
 					                           </div>
@@ -2558,7 +2554,7 @@
 				                                <label for="exampleInputEmail1" class="form_label">currency</label>
 				                                </div>
 				                                <div class="col-sm-8">
-				                                  <select class="form-control  my_form_item" name="account" ng-model="send_money_indi.currency_id"    ng-options="currency.getId() as currency.getName() for currency in currencies">
+				                                  <select class="form-control  my_form_item" name="account" ng-model="expense_data.currency_id"    ng-options="currency.getId() as currency.getName() for currency in currencies">
 
 										      		 <option  value=""> -- </option>
 										 		   </select>
@@ -2571,7 +2567,7 @@
 				                                <label for="exampleInputEmail1" class="form_label">Reciever name</label>
 				                                </div>
 				                                <div class="col-sm-8">
-				                                <input type="text" class="form-control  my_form_item" name="transaction_code" placeholder="reciever"  ng-model="send_money_indi.reciever" required>
+				                                <input type="text" class="form-control  my_form_item" name="transaction_code" placeholder="reciever"  ng-model="expense_data.receiver" required>
 				                                </div>
 			                                </div>
 
@@ -2583,7 +2579,7 @@
 				                                <label for="exampleInputEmail1" class="form_label">charge</label>
 				                                </div>
 				                                <div class="col-sm-8">
-				                                <input type="text" class="form-control  my_form_item" name="transaction_code" placeholder="charge"  ng-model="send_money_indi.charge" required>
+				                                <input type="text" class="form-control  my_form_item" name="transaction_code" placeholder="charge"  ng-model="expense_data.charge" required>
 				                                </div>
 			                                </div>
 
@@ -2592,7 +2588,7 @@
 				                                <label for="exampleInputEmail1" class="form_label">details</label>
 				                                </div>
 				                                <div class="col-sm-8">
-				                                <textarea type="text" class="form-control  my_form_item" name="transaction_code" placeholder="charge"  ng-model="send_money_indi.details" required></textarea>
+				                                <textarea type="text" class="form-control  my_form_item" name="transaction_code" placeholder="details"  ng-model="expense_data.details" required></textarea>
 				                                </div>
 			                                </div>
 
