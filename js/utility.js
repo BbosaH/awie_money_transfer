@@ -46,7 +46,7 @@ var getCashouts = (transactions,currencies,branch_id)=>{
 
       return{
 
-        details : 'exchange',
+        details : 'Exchange',
         amount : (x.amount_from_rate)? x.amount_from_rate : 0,
         charge : (x.charge)? x.charge : 0,
         currency : c.name
@@ -56,7 +56,7 @@ var getCashouts = (transactions,currencies,branch_id)=>{
    }else if(x.transaction_type_id==2  || x.transaction_type_id==3){
      return{
 
-       details :(x.transaction_type_id==2 || x.transaction_type_id==3)? 'withdraw' : 'To Branch',
+       details :'withdraw',
        amount : (x.amount)? x.amount : 0,
        charge : (x.charge)? x.charge : 0,
        currency : c.name
@@ -66,7 +66,7 @@ var getCashouts = (transactions,currencies,branch_id)=>{
    }else if(x.transaction_type_id==4 || x.transaction_type_id==6){
 
       return{
-       details :(x.transaction_type_id==4)? 'Expense' : 'To client',
+       details :(x.transaction_type_id==4)? 'Expense' : "To "+x.receiver_name,
        amount : (x.amount)? x.amount : 0,
        charge : (x.charge)? x.charge : 0,
        currency : c.name
@@ -78,7 +78,7 @@ var getCashouts = (transactions,currencies,branch_id)=>{
 
        return{
 
-         details :(x.transaction_type_id==2 || x.transaction_type_id==3)? 'withdraw' : 'To Branch',
+         details :(x.transaction_type_id==2 || x.transaction_type_id==3)? 'withdraw' : 'To '+x.to_branch_name,
          amount : (x.amount)? x.amount : 0,
          charge : (x.charge)? x.charge : 0,
          currency : c.name
@@ -142,7 +142,7 @@ var getCashIns = (transactions,currencies,branch_id)=>{
       if(trans.to_branch_id==branch_id && trans.branch_id !==branch_id){
         return{
 
-          details : (trans.transaction_type_id==5)? 'From Kinsasha' : 'Exchange',
+          details : (trans.transaction_type_id==5)? "From "+trans.branch_name : 'Exchange',
           amount : (trans.amount)? trans.amount:0,
           charge : (trans.charge)? trans.charge: 0,
           currency : c.name
