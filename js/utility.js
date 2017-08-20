@@ -135,7 +135,8 @@ var getCashIns = (transactions,currencies,branch_id)=>{
         details : (trans.transaction_type_id==1)? 'Transfer' : 'Exchange',
         amount : (trans.amount)? trans.amount:0,
         charge : (trans.charge)? trans.charge: 0,
-        currency : c.name
+        currency : c.name,
+        transaction_type_id : trans.transaction_type_id
       };
 
     }else if(trans.transaction_type_id==5){
@@ -145,7 +146,8 @@ var getCashIns = (transactions,currencies,branch_id)=>{
           details : (trans.transaction_type_id==5)? "From "+trans.branch_name : 'Exchange',
           amount : (trans.amount)? trans.amount:0,
           charge : (trans.charge)? 0 : 0,
-          currency : c.name
+          currency : c.name,
+          transaction_type_id : trans.transaction_type_id
         };
 
      }

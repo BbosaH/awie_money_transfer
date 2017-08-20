@@ -917,6 +917,27 @@ angular.module('controllers', ['services','angularModalService'])
                 });
 
                 x.transaction_no = x.transactions_today.length;
+
+                const y_grouped_cashins = _.groupBy(x.cashins, cashin => cashin.currency);
+                x.acc_cashins = Object.keys(y_grouped_cashins)
+                .map(key=>{
+                  var key_cashins = y_grouped_cashins[key];
+
+                  var total_charge = (key_cashins)? key_cashins
+                  .map(y =>(y.transaction_type_id==5)? 0 : Number(y.charge))
+                  .reduce((acc,value)=>acc+value,0) : 0;
+
+                  var total_amount = (key_cashins)? key_cashins
+                  .map(y =>Number(y.amount))
+                  .reduce((acc,value)=>acc+value,0) : 0;
+
+
+                  return [key,total_charge,total_amount];
+                });
+
+
+
+                console.log(x.acc_cashins);
                 x.total_charge = (x.cashins)? x.cashins
                 .map(y =>(y.transaction_type_id==5)? 0 : Number(y.charge))
                 .reduce((acc,value)=>acc+value,0) : 2;
@@ -951,6 +972,27 @@ angular.module('controllers', ['services','angularModalService'])
 
                 x.transaction_no = x.transactions_today.length;
 
+                const grouped_cashins = _.groupBy(x.cashins, cashin => cashin.currency);
+                x.acc_cashins = Object.keys(grouped_cashins)
+                .map(key=>{
+                  var key_cashins = grouped_cashins[key];
+
+                  var total_charge = (key_cashins)? key_cashins
+                  .map(y =>(y.transaction_type_id==5)? 0 : Number(y.charge))
+                  .reduce((acc,value)=>acc+value,0) : 0;
+
+                  var total_amount = (key_cashins)? key_cashins
+                  .map(y =>Number(y.amount))
+                  .reduce((acc,value)=>acc+value,0) : 0;
+
+
+                  return [key,total_charge,total_amount];
+                });
+
+
+
+                console.log(x.acc_cashins);
+
                 x.total_charge = (x.cashins)? x.cashins
                 .map(y =>(y.transaction_type_id==5)? 0 : Number(y.charge))
                 .reduce((acc,value)=>acc+value,0) : 2;
@@ -983,6 +1025,27 @@ angular.module('controllers', ['services','angularModalService'])
                $scope.report_info.cashouts = getCashouts($scope.report_info.transactions_today,$scope.all_data.data.currencies,$scope.report_info.branch.id).filter(function( element ) {
                   return (element !== []._ && element !== null && element !== 0)  ;
                });
+
+               const a_grouped_cashins = _.groupBy($scope.report_info.cashins, cashin => cashin.currency);
+               $scope.report_info.acc_cashins = Object.keys(a_grouped_cashins)
+               .map(key=>{
+                 var key_cashins = a_grouped_cashins[key];
+
+                 var total_charge = (key_cashins)? key_cashins
+                 .map(y =>(y.transaction_type_id==5)? 0 : Number(y.charge))
+                 .reduce((acc,value)=>acc+value,0) : 0;
+
+                 var total_amount = (key_cashins)? key_cashins
+                 .map(y =>Number(y.amount))
+                 .reduce((acc,value)=>acc+value,0) : 0;
+
+
+                 return [key,total_charge,total_amount];
+               });
+
+
+
+               console.log($scope.report_info.acc_cashins);
                $scope.report_info.total_charge = ($scope.report_info.cashins)? $scope.report_info.cashins
                  .map(y =>(y.transaction_type_id==5)? 0 : Number(y.charge))
                  .reduce((acc,value)=>acc+value,0) : 2;

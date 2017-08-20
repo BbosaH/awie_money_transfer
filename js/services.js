@@ -74,7 +74,7 @@ angular.module('services', [])
 			//contentType: false,
 			dataType : 'jsonp',
 			success: function(response) {
-			    console.log(response);
+			   // console.log(response);
 			    callback(response);
 			    			//window.location.href=config.BaseURL+"#/home";
 			},
