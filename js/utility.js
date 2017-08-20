@@ -144,7 +144,7 @@ var getCashIns = (transactions,currencies,branch_id)=>{
 
           details : (trans.transaction_type_id==5)? "From "+trans.branch_name : 'Exchange',
           amount : (trans.amount)? trans.amount:0,
-          charge : (trans.charge)? trans.charge: 0,
+          charge : (trans.charge)? 0 : 0,
           currency : c.name
         };
 
