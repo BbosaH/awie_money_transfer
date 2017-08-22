@@ -885,7 +885,7 @@
 				<div class="row">
 			    	<section class="panel panel-body"  style="border-radius:0px">
 
-			    		<form role="form" name='transaction_form' enctype="multipart/formdata" ng-submit="sendExpense()">
+			    		<form role="form" name='transaction_form' enctype="multipart/formdata">
 			                <div class="tab-content">
 
 
@@ -944,7 +944,7 @@
 
 			                                <div class="row">
 				                                <div class="col-sm-12">
-				                                  <button type="submit" class="form-control noborder_radius bold btn-success submit_but" style="margin-top:5%;height:50px"><text style="font-weight: bold;" ng-disabled="spending==1"> Submit Expenses <i class="glyphicon glyphicon-ok"></i> </button>
+				                                  <button type="submit" class="form-control noborder_radius bold btn-success submit_but" ng-click="sendExpense()" style="margin-top:5%;height:50px" ng-disabled="spending==1"><text style="font-weight: bold;"> Submit Expenses <i class="glyphicon glyphicon-ok"></i> </button>
 				                                </div>
 			                                </div>
 

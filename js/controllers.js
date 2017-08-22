@@ -1437,7 +1437,7 @@ angular.module('controllers', ['services','angularModalService'])
     }
 
     $scope.sendMoneyToBranch=()=>{
-         $scope.branch_sending =1;
+        $scope.branch_sending =1;
         Utilities.submitData($scope.send_money_data,(response)=>{
 
             $scope.send_money_response = JSON.parse(response);
